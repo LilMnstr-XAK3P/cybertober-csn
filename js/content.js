@@ -101,6 +101,7 @@ var CONTENT = {
 
   /* ================= WEEK 1 · PHISHING & SOCIAL ENGINEERING ================= */
   { d: 5, w: "w1", kind: "core", title: "Anatomy of a Phish",
+    poster: { f: "img/oct05-think-before-you-click.webp", alt: "Poster: Think Before You Click. Created by Lily Morningstar." },
     video: { yt: "D_yAYhjNE-0", title: "Security Awareness Episode 4: Phishing and Ransomware", by: "National Cybersecurity Alliance" },
     extras: [{ yt: "sg0kQYvTlnc", title: "How to Avoid Phishing! (We Can Secure Our World)", by: "CISA" }, { kal: "0_pw4dqnp3", title: "You've Been Phished", by: "NIST" }],
     read: '<p>Phishing messages are designed to look like they come from someone you trust. Check these before you click:</p><ul>' +
@@ -127,6 +128,7 @@ var CONTENT = {
       { q: "You think an email is a phish. What should you do first?", o: ["Reply and ask whether it's real", "Click the link to see where it goes", "Don't click. Report it using your email's report button or your organization's process"], a: 2, why: "Report, then delete. Verify through a channel you already trust." }] },
 
   { d: 6, w: "w1", kind: "core", title: "Smishing & Vishing",
+    poster: { f: "img/oct06-question-the-message.webp", alt: "Poster: Question The Message. Created by Lily Morningstar." },
     video: { yt: "Hc01oZPvByg", title: "Security Awareness Episode 6: Vishing", by: "National Cybersecurity Alliance" },
     kb4: { id: "af44ce18-ea58-47c9-a352-fb1f277ec903", title: "Smishing Frenzy" },
     read: '<p><b>Smishing</b> is phishing by text message (SMS). <b>Vishing</b> is phishing by voice call. Both work because people trust their phones and act fast on short messages.</p><ul>' +
@@ -151,6 +153,7 @@ var CONTENT = {
       { q: "Where can you forward a spam text in the U.S.?", o: ["7726 (SPAM)", "911", "Your contacts, to warn them"], a: 0 }] },
 
   { d: 7, w: "w1", kind: "core", title: "Social Engineering Tricks",
+    poster: { f: "img/oct07-see-something-say-something.webp", alt: "Poster: See Something Say Something. Created by Lily Morningstar." },
     video: { yt: "FRxrHduwPjY", title: "Security Awareness Episode 5: Removable Media", by: "National Cybersecurity Alliance" },
     read: '<p><b>Social engineering</b> manipulates people instead of hacking machines. Attackers exploit emotions like fear, helpfulness, curiosity and respect for authority. Common techniques:</p><ul>' +
       '<li><b>Pretexting:</b> inventing a believable story (“I\'m from IT, I need to verify your account”) to get information.</li>' +
@@ -177,6 +180,7 @@ var CONTENT = {
       { q: "Someone without a badge follows you through a secure door. This is called:", o: ["Tailgating", "Pretexting", "Smishing"], a: 0 }] },
 
   { d: 8, w: "w1", kind: "core", title: "Read the Link",
+    poster: { f: "img/oct08-be-cyber-ready.webp", alt: "Poster: Be Cyber Ready. Created by Lily Morningstar." },
     video: { yt: "7Apu1EWZPhQ", title: "Security Awareness Episode 7: Internet Downloads", by: "National Cybersecurity Alliance" },
     read: '<p>Before you click, read the link like an analyst.</p><p class="mono">https://<b>login</b>.<b style="color:var(--ok)">microsoft.com</b>/oauth?id=123</p><ul>' +
       '<li><b>Find the real domain.</b> It\'s the name just before the first single slash, ending in .com, .edu, .gov and so on. Everything to the left is a subdomain the owner controls.</li>' +
@@ -201,6 +205,7 @@ var CONTENT = {
       { q: "Which attachment type is the most suspicious if you weren't expecting it?", o: ["A .zip or .html file", "A .txt note", "A .jpg photo from a friend you were texting"], a: 0 }] },
 
   { d: 9, w: "w1", kind: "tabletop", title: "Tabletop: Unmasking a Whale", intro: "Mission briefing inside",
+    poster: { f: "img/oct09-same-look-higher-risk.webp", alt: "Poster: Same Look Higher Risk. Created by Lily Morningstar." },
     video: { yt: "-89h8FGgypQ", title: "Let's Talk About How Impersonation Scams Work", by: "Federal Trade Commission" },
     readTitle: "Mission briefing",
     read: '<p><b>Whaling</b> (CEO fraud) is phishing aimed at an organization by impersonating a top executive. It exploits authority and urgency, and today it often arrives with perfect grammar and real logos.</p>' +
@@ -229,8 +234,9 @@ var CONTENT = {
         end: "Spotting the warning sign is step one. Following the procedure and reporting it is step two." }] },
 
   { d: 10, w: "w1", kind: "bonus", title: "Red Flag Hunt: Don't Get Hooked",
-    games: [{ type: "findrisks", title: "Find the Red Flags", html: '<div class="mail"><div class="mh"><span>From: <code>support@amazon-customer-center.com</code></span><span>Subject: <b>URGENT: Action Required for Your Amazon Package [#A29875431]</b></span></div><div class="mb">Your recent order is being held at our delivery facility. If you don\'t act within 24 hours, it will be returned to the warehouse.<br><br>To release it for delivery, verify your order information using the link below.<br><br><b>View Your Latest Order</b><br><code>http://amazon-customer-center.com/tracking.php</code></div></div>',
-      prompt: "Study the fake Amazon email. Which of these red flags appear in it?",
+    poster: { f: "img/oct10-see-something-say-something-report-it.webp", alt: "Poster: See Something Say Something Report It. Created by Lily Morningstar." },
+    games: [{ type: "findrisks", title: "Find the Red Flags", img: "img/oct10-game-dont-get-hooked.webp", alt: "Poster: Don't Get Hooked. Created by Lily Morningstar.",
+      prompt: "Study the poster (tap it to zoom). Which of these red flags appear in its fake Amazon email?",
       items: [
         { ic: "📧", label: "Sender is not an amazon.com address", risk: true, why: "support@amazon-customer-center.com is a lookalike." },
         { ic: "⏰", label: "Threat that the package returns in 24 hours", risk: true, why: "Artificial deadlines push you to act without thinking." },
@@ -784,7 +790,7 @@ var CONTENT = {
       'KnowBe4. (2025). <i>Phishing Gets Smarter: How AI Is Changing Online Scams</i> [Learning document].',
       'KnowBe4. (2024). <i>Sensitive Data: Keep it Secret, Keep it Safe</i> [Learning document].',
       'KnowBe4. (2025). <i>Phishing, Physical Security, and Data Breaches, Oh My!</i> [Learning document].',
-      'KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
+      'Posters on this website were created by Lily Morningstar. KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
       'KnowBe4. (2026). <i>Smishing Frenzy</i> [Interactive training module, free kit access]. <a href="https://training.knowbe4.com/modstore/view/af44ce18-ea58-47c9-a352-fb1f277ec903/en-us" target="_blank" rel="noopener">training.knowbe4.com</a>.'] },
     { group: "Cybersecurity and Infrastructure Security Agency (CISA)", items: [
       'CISA. (2026). <i>Cybersecurity Best Practices</i> [Cybersecurity Awareness Month 2026 presentation]. Source of the 2026 theme “Securing the Next 250” and the new 2026 Cybersecurity Performance Goal actions.',
