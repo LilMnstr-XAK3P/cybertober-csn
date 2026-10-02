@@ -134,7 +134,7 @@ var GAMES = (function () {
     done = once(done);
     var need = data.items.filter(function (x) { return x.risk; }).length;
     var grid = '<div class="scene">' + data.items.map(function (x, i) { return '<button class="spot" data-i="' + i + '" aria-pressed="false">' + (x.ic ? '<span class="ic" aria-hidden="true">' + x.ic + "</span>" : "") + "<span>" + x.label + "</span></button>"; }).join("") + "</div>";
-    el.innerHTML = '<p class="gi">' + esc(data.prompt) + " There are " + need + ' to find.</p>' + (data.img ? '<div class="hunt"><img src="' + data.img + '" alt="' + esc(data.alt || "") + '" data-zoom>' + grid + "</div>" : grid) + '<div class="row"><button class="btn" data-c>Check my picks</button></div><div class="ffb" aria-live="polite"></div>';
+    el.innerHTML = '<p class="gi">' + esc(data.prompt) + " There are " + need + ' to find.</p>' + (data.img ? '<div class="hunt"><img src="' + data.img + '" alt="' + esc(data.alt || "") + '" data-zoom>' + grid + "</div>" : data.html ? '<div class="hunt"><div>' + data.html + "</div>" + grid + "</div>" : grid) + '<div class="row"><button class="btn" data-c>Check my picks</button></div><div class="ffb" aria-live="polite"></div>';
     el.querySelectorAll(".spot").forEach(function (s) { s.onclick = function () { if (s.disabled) return; s.classList.toggle("flag"); s.setAttribute("aria-pressed", s.classList.contains("flag")); }; });
     el.querySelector("[data-c]").onclick = function () {
       var hits = 0, wrong = 0, msgs = [];

@@ -22,10 +22,10 @@ var CONTENT = {
 
   badges: [
     { id: "recruit", name: "Recruit", w: "k", days: [1, 2], how: "Complete October 1 and 2.", msg: "You've joined the Workforce Risk Division. Your training starts now." },
-    { id: "ghost", name: "The Ghost", w: "w1", days: [5, 6, 7, 8, 9], img: "img/spec-ghost.webp", how: "Complete every Week 1 weekday (Oct 5–9).", msg: "Counter-intelligence specialist. Motto: <b>Trust, but verify… then verify again.</b> If an email creates a false sense of urgency, it's probably a trap." },
-    { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], img: "img/spec-gadget.webp", how: "Complete every Week 2 weekday (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
-    { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], img: "img/spec-locknkey.webp", how: "Complete every Week 3 weekday (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
-    { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], img: "img/spec-scout.webp", how: "Complete every Week 4 weekday (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
+    { id: "ghost", name: "The Ghost", w: "w1", days: [5, 6, 7, 8, 9], how: "Complete every Week 1 weekday (Oct 5–9).", msg: "Counter-intelligence specialist. Motto: <b>Trust, but verify… then verify again.</b> If an email creates a false sense of urgency, it's probably a trap." },
+    { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], how: "Complete every Week 2 weekday (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
+    { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], how: "Complete every Week 3 weekday (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
+    { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], how: "Complete every Week 4 weekday (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
     { id: "defender", name: "Cyber Defender", w: "b", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished Cyber October. Open October 31 to see your certificate once your score reaches 70%." }
   ],
 
@@ -228,21 +228,20 @@ var CONTENT = {
           { who: "Step 4 · 9:15 AM", text: "What should Taylor include in the report?", opts: ["Just a quick message saying “weird email.”", "Forward the emails as attachments (with full headers), and include the time received and what was requested.", "A screenshot of the email body only."], best: 1, why: "Full headers and a timeline help the security team trace and block the attack." }],
         end: "Spotting the warning sign is step one. Following the procedure and reporting it is step two." }] },
 
-  { d: 10, w: "w1", kind: "bonus", title: "Poster Hunt: Don't Get Hooked",
-    games: [{ type: "findrisks", title: "Find the Red Flags", img: "img/poster-w1-dont-get-hooked.webp", alt: "KnowBe4 poster: Don't Get Hooked, report every phishing attempt, showing a fake Amazon email",
-      prompt: "Study the poster (tap it to zoom). Which of these red flags appear in the fake Amazon email?",
+  { d: 10, w: "w1", kind: "bonus", title: "Red Flag Hunt: Don't Get Hooked",
+    games: [{ type: "findrisks", title: "Find the Red Flags", html: '<div class="mail"><div class="mh"><span>From: <code>support@amazon-customer-center.com</code></span><span>Subject: <b>URGENT: Action Required for Your Amazon Package [#A29875431]</b></span></div><div class="mb">Your recent order is being held at our delivery facility. If you don\'t act within 24 hours, it will be returned to the warehouse.<br><br>To release it for delivery, verify your order information using the link below.<br><br><b>View Your Latest Order</b><br><code>http://amazon-customer-center.com/tracking.php</code></div></div>',
+      prompt: "Study the fake Amazon email. Which of these red flags appear in it?",
       items: [
         { ic: "📧", label: "Sender is not an amazon.com address", risk: true, why: "support@amazon-customer-center.com is a lookalike." },
         { ic: "⏰", label: "Threat that the package returns in 24 hours", risk: true, why: "Artificial deadlines push you to act without thinking." },
         { ic: "🔗", label: "Link to a non-Amazon http:// site", risk: true, why: "amazon-customer-center.com/tracking.php isn't Amazon, and it isn't even HTTPS." },
         { ic: "🔐", label: "Asks you to “verify your order information”", risk: true, why: "Verification requests are how attackers harvest data." },
         { ic: "🚨", label: "“URGENT: Action Required” subject line", risk: true, why: "Urgency in the subject line is a classic lure." },
-        { ic: "🔤", label: "Lots of obvious spelling mistakes", risk: false, why: "The poster's email is mostly well written. Don't count on typos." },
+        { ic: "🔤", label: "Lots of obvious spelling mistakes", risk: false, why: "This email is mostly well written. Don't count on typos." },
         { ic: "💳", label: "Asks for a gift card payment", risk: false, why: "Not in this one. It goes after your order information instead." },
         { ic: "📎", label: "A .zip file attachment", risk: false, why: "There's no attachment here. The danger is the link." }] }],
-    read: '<p>KnowBe4\'s Week 1 poster sums it up: <b>report every phishing attempt</b>. Your quick report protects everyone, because the security team can block the same message for others.</p>',
-    readTitle: "Why report?",
-    docs: [{ f: "img/poster-w1-dont-get-hooked.webp", t: "Don't Get Hooked poster (KnowBe4)" }] },
+    read: '<p>Week 1 in one line: <b>report every phishing attempt</b>. Your quick report protects everyone, because the security team can block the same message for others.</p>',
+    readTitle: "Why report?" },
 
   { d: 11, w: "w1", kind: "bonus", title: "Quishing: QR Code Phishing",
     read: '<p><b>Quishing</b> hides a phishing link inside a QR code. Your camera can\'t tell a real code from a fake one, and phones make it hard to inspect the link.</p><ul>' +
@@ -295,7 +294,6 @@ var CONTENT = {
       '<li><b>Verify requests through a trusted source.</b> Hang up and call back on a number you know.</li>' +
       '<li><b>Use a code word</b> with family or colleagues for “urgent” calls (Gadget\'s advice).</li>' +
       '<li><b>Money, passwords or secrecy</b> in a call or video chat? Slow down and verify.</li></ul>',
-    poster: { f: "img/poster-w2-spotting-deepfakes.webp", alt: "KnowBe4 poster: Deepfakes. They look real, they sound real. Always verify requests through a trusted source." },
     src: "Adapted from the KnowBe4 Week 2 poster “Real or Fake? Spotting Deepfakes” and CISA's Using AI tip sheet.",
     docs: [{ f: "docs/sow-using-ai.pdf", t: "Stay Safe Online When Using AI (CISA)" }],
     games: [{ type: "choice", skin: "card", title: "Verify or Proceed?", prompt: "Could this be a deepfake attack? Decide what to do.", actions: ["Proceed", "Stop and verify"],
@@ -411,7 +409,6 @@ var CONTENT = {
       '<li><b>Unique:</b> a different password for every account, so one breach doesn\'t unlock the rest.</li></ul>' +
       '<p><b>What NIST says.</b> NIST\'s digital identity guidelines (SP 800-63-4) shape how organizations set password rules. They favor <b>length over complexity</b>, say systems should check new passwords against lists of known-compromised ones, and say you shouldn\'t be forced to change passwords on a schedule unless there\'s evidence of compromise.</p>' +
       '<div class="callout" style="--c:var(--w3)"><b>Lock n\' Key\'s advice:</b> your password shouldn\'t be a word; it should be a story only you know. Keep personal details (pets, birthdays, teams, hometown) out of it.</div>',
-    poster: { f: "img/poster-w3-strong-passwords.webp", alt: "KnowBe4 poster: Strong passwords make every login safer" },
     src: "Adapted from the CISA Secure Our World passwords tip sheet, NIST SP 800-63-4 and the KnowBe4 Week 3 materials.",
     docs: [{ f: "docs/sow-passwords.pdf", t: "Passwords tip sheet (CISA)" }],
     games: [{ type: "password", title: "Password Builder", personal: ["fluffy", "rebels", "henderson", "summerlin", "spring valley"] }],
@@ -564,7 +561,6 @@ var CONTENT = {
       '<li><b>Clicked already? Report anyway.</b> Mistakes happen. The worst outcome is silence. Change your password if you entered it, and tell IT what happened.</li>' +
       '<li><b>Don\'t assume someone else reported it.</b></li></ul>' +
       '<div class="callout" style="--c:var(--w4)"><b>At CSN:</b> use your email\'s Report or Report phishing button, and contact the CSN IT Help Desk for anything you clicked or entered. Outside of school, use your email provider\'s report feature and the agencies you\'ll meet on October 28.</div>',
-    poster: { f: "img/poster-w4-one-report.webp", alt: "KnowBe4 poster: Suspicious email? Report immediately to protect yourself and your organization." },
     src: "Adapted from the KnowBe4 Week 4 poster “One Report, Shared Protection” and the KnowBe4 Scout card.",
     games: [{ type: "choice", skin: "card", title: "What Now?", prompt: "Pick the best response.",
       items: [
@@ -788,8 +784,7 @@ var CONTENT = {
       'KnowBe4. (2025). <i>Phishing Gets Smarter: How AI Is Changing Online Scams</i> [Learning document].',
       'KnowBe4. (2024). <i>Sensitive Data: Keep it Secret, Keep it Safe</i> [Learning document].',
       'KnowBe4. (2025). <i>Phishing, Physical Security, and Data Breaches, Oh My!</i> [Learning document].',
-      'KnowBe4. (2025–2026). <i>Don\'t Get Hooked</i>, <i>Real or Fake? Spotting Deepfakes</i>, <i>Strong Passwords Protect Your Online Peace</i> and <i>One Report, Shared Protection</i> [Posters].',
-      'KnowBe4. (2026). <i>Workforce Risk Division Specialist character cards: The Ghost, Gadget, Lock n\' Key, Scout</i> [Posters]. Used as badge artwork.',
+      'KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
       'KnowBe4. (2026). <i>Smishing Frenzy</i> [Interactive training module, free kit access]. <a href="https://training.knowbe4.com/modstore/view/af44ce18-ea58-47c9-a352-fb1f277ec903/en-us" target="_blank" rel="noopener">training.knowbe4.com</a>.'] },
     { group: "Cybersecurity and Infrastructure Security Agency (CISA)", items: [
       'CISA. (2026). <i>Cybersecurity Best Practices</i> [Cybersecurity Awareness Month 2026 presentation]. Source of the 2026 theme “Securing the Next 250” and the new 2026 Cybersecurity Performance Goal actions.',
