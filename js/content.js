@@ -266,6 +266,7 @@ var CONTENT = {
 
   /* ================= WEEK 2 · AI SAFETY & DEEPFAKES ================= */
   { d: 12, w: "w2", kind: "core", title: "AI Makes Phishing Smarter",
+    poster: { f: "img/oct12-ai-powered-phishing.webp", alt: "Poster: Ai Powered Phishing. Created by Lily Morningstar." },
     video: { yt: "BrJVb9lftqU", title: "AI · Kubikle (Part 2, Episode 7)", by: "National Cybersecurity Alliance" },
     read: '<p>AI is changing how scams look and feel:</p><ul>' +
       '<li><b>Personalized attacks:</b> AI can comb your social media and public info to write messages that seem made just for you.</li>' +
@@ -291,6 +292,7 @@ var CONTENT = {
       { q: "What's the best response to an unusual, urgent request, even if it looks perfect?", o: ["Act quickly to be helpful", "Verify through a channel you already trust before acting", "Forward it to friends"], a: 1 }] },
 
   { d: 13, w: "w2", kind: "core", title: "Deepfakes: Real or Fake?",
+    poster: { f: "img/oct13-deepfakes-common-signs.webp", alt: "Poster: Deepfakes Common Signs. Created by Lily Morningstar." },
     video: { yt: "eGAQyO2JCqE", title: "Deepfakes!", by: "KnowBe4" },
     extras: [{ yt: "QEPdo_DvakY", title: "Family Emergency Imposter Scams", by: "Federal Trade Commission" }],
     kb4: { id: null, title: "A Deepfake Social Engineering Attack" },
@@ -316,6 +318,7 @@ var CONTENT = {
       { q: "Which is a common deepfake scam?", o: ["A cloned voice of a relative asking for emergency money", "A software update notice", "A Canvas assignment reminder"], a: 0 }] },
 
   { d: 14, w: "w2", kind: "core", title: "Using AI Safely",
+    poster: { f: "img/oct14-prompt-smart.webp", alt: "Poster: Prompt Smart. Created by Lily Morningstar." },
     read: '<p>AI tools can help you study and work, but what you type can travel further than you think. CISA\'s tips:</p><ul>' +
       '<li><b>Mind your inputs.</b> AI systems may learn from what you enter. If you wouldn\'t post it on social media, don\'t share it with AI. That includes company data and personal details.</li>' +
       '<li><b>Be privacy aware.</b> AI models scrape the public web, so what you post publicly may end up in AI tools.</li>' +
@@ -341,6 +344,7 @@ var CONTENT = {
       { q: "Where do you find whether AI is allowed in a CSN course?", o: ["Your instructor's syllabus and course policies", "Any AI chatbot", "A classmate's opinion"], a: 0 }] },
 
   { d: 15, w: "w2", kind: "core", title: "Protecting Intellectual Property",
+    poster: { f: "img/oct15-smart-prompts-safer-results.webp", alt: "Poster: Smart Prompts Safer Results. Created by Lily Morningstar." },
     kb4: { id: null, title: "Protecting Intellectual Property" },
     read: '<p><b>Intellectual property (IP)</b> is valuable information an organization or person creates: source code, designs, research data, product plans, trade secrets and creative work. Attackers, including deepfake social engineers, target IP because it\'s worth money.</p><ul>' +
       '<li><b>Know the label.</b> Many organizations classify data as public, internal or confidential. Handle each level by the rules.</li>' +
@@ -366,6 +370,7 @@ var CONTENT = {
       { q: "A “vice president” you've never met messages you on social media asking for project files. You should:", o: ["Send them, he's senior", "Verify his identity through official channels before sharing anything", "Send only half the files"], a: 1 }] },
 
   { d: 16, w: "w2", kind: "tabletop", title: "Tabletop: The AI Prompt Challenge", intro: "Mission briefing inside",
+    poster: { f: "img/oct16-gadget-keep-your-tools-sharp.webp", alt: "Poster: Gadget Keep Your Tools Sharp. Created by Lily Morningstar." },
     readTitle: "Mission briefing",
     read: '<p>Your organization approved an AI tool for all employees. It\'s a <b>private lane</b>: your data isn\'t shared with the public. You still must follow these prompt safety policies:</p><ul>' +
       '<li>Never input <b>personally identifiable information</b> (PII: names, IDs, birth dates) or <b>protected health information</b> (PHI).</li>' +
@@ -393,6 +398,9 @@ var CONTENT = {
         end: "Spotting the unsafe prompt is step one. Rewriting it safely is the skill." }] },
 
   { d: 17, w: "w2", kind: "bonus", title: "Deepfake Detective",
+    poster: { f: "img/oct17-deepfakes-pause-verify-protect.webp", alt: "Poster: Deepfakes Pause Verify Protect. Created by Lily Morningstar." },
+    readTitle: "Study the poster",
+    read: '<p>Study this poster (tap it to see it full size), then mark it read.</p>',
     video: { yt: "LvXoGSwpP8o", title: "8+ Million Deepfakes Online… Can You Tell What's Real?", by: "KnowBe4" },
     quizTitle: "Detective check",
     quiz: [
@@ -401,6 +409,9 @@ var CONTENT = {
       { q: "Why is “I'll just spot the glitches” a weak strategy?", o: ["Deepfakes keep getting more realistic", "Glitches are illegal to look for", "Glitches only appear on phones"], a: 0 }] },
 
   { d: 18, w: "w2", kind: "bonus", title: "AI Safety Word Search",
+    poster: { f: "img/oct18-deepfakes-always-verify.webp", alt: "Poster: Deepfakes Always Verify. Created by Lily Morningstar." },
+    readTitle: "Study the poster",
+    read: '<p>Study this poster (tap it to see it full size), then mark it read.</p>',
     games: [{ type: "wordsearch", title: "AI Safety Word Search", prompt: "Find all the words. Drag across a word, or tap its first and last letters.", size: 12,
       words: ["DEEPFAKE", "PROMPT", "VERIFY", "PHISHING", "CODEWORD", "PRIVACY", "PASSKEY", "POLICY", "CLONE", "MFA"] }] },
 
