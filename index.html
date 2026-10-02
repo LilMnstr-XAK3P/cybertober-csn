@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cyber October 2026</title>
+<meta name="description" content="Cyber October 2026: an interactive Cybersecurity Awareness Month course for College of Southern Nevada students. Daily lessons, games, badges and a Halloween Boss Fight.">
+<meta property="og:title" content="Cyber October 2026">
+<meta property="og:description" content="31 days of cybersecurity lessons, games and badges for Cybersecurity Awareness Month.">
+<meta name="theme-color" content="#004990">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <img class="logo" src="img/logo-csn-white.webp" alt="College of Southern Nevada">
+    <div class="ttl">
+      <h1>Cyber October <span>2026</span></h1>
+      <p>Cybersecurity Awareness Month · Theme: <b>Securing the Next 250</b> · <a href="https://www.csn.edu/cybercenter" target="_blank" rel="noopener">CSN Cyber Center ↗</a></p>
+    </div>
+    <div class="seal"><img src="img/logo-nsa-cae.webp" alt="NSA National Centers of Academic Excellence in Cybersecurity Community"></div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="hello" id="hello"></div>
+
+  <div class="strip">
+    <div class="ring" role="img" id="ringlbl" aria-label="Course score 0 percent">
+      <svg width="118" height="118" viewBox="0 0 118 118" aria-hidden="true"><circle cx="59" cy="59" r="50" fill="none" stroke="var(--surface-2)" stroke-width="11"/><circle id="arc" cx="59" cy="59" r="50" fill="none" stroke="var(--csn-gold)" stroke-width="11" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16"/></svg>
+      <div class="num"><b id="pct">0%</b><small>score</small></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="xp">0</b><span>XP earned</span></div>
+      <div class="stat"><b id="core">0 / 23</b><span>Required days done</span></div>
+      <div class="stat"><b id="bon">0 / 8</b><span>Bonus days</span></div>
+      <div class="stat"><b id="passline">70%</b><span id="passlbl">To pass</span></div>
+      <div class="stat"><button class="btn" id="todaybtn">Open today's lesson</button></div>
+    </div>
+    <div class="badges" id="badges"></div>
+  </div>
+
+  <section class="mission" id="mission">
+    <div class="mtxt">
+      <span class="tag">Mission 0 · Bonus 50 XP</span>
+      <h2>Join the KnowBe4 Workforce Risk Division</h2>
+      <p>This course is built on KnowBe4's free 2026 Cybersecurity Awareness Month kit. Register free on KnowBe4 to get the full kit: every training module, the four Specialist character cards, posters, tabletop exercises and on-demand webinars. The kit is available through October 31, 2026. On the form, enter <b>College of Southern Nevada</b> as your organization.</p>
+    </div>
+    <div class="mact">
+      <a class="btn gold" id="reglink" target="_blank" rel="noopener">Register on KnowBe4 ↗</a>
+      <label class="chk"><input type="checkbox" id="regchk"> I registered for the KnowBe4 kit</label>
+    </div>
+  </section>
+
+  <div class="month"><h2>October 2026</h2><div class="legend" id="legend"></div></div>
+  <div class="grid" id="cal"></div>
+
+  <section class="res" id="library"></section>
+
+  <details class="res cites" id="citations"></details>
+</main>
+
+<footer><div class="wrap" id="credits"></div></footer>
+
+<div class="sheet" id="sheet" hidden><div class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="ptitle"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/scorm.js"></script>
+<script src="js/content.js"></script>
+<script src="js/games.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
