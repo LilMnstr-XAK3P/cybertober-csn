@@ -20,7 +20,6 @@
   var WEIGHT = { video: 2, kb4: 2.5, read: 2, g0: 3, g1: 3, quiz: 3 };
   var MAXXP = { core: 100, tabletop: 100, bonus: 50, boss: 200 };
   var B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
-  var DOW = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var DAYS = C.days, BY = {}; DAYS.forEach(function (d) { BY[d.d] = d; });
   var REQUIRED = DAYS.filter(function (d) { return d.kind !== "bonus"; });
   var REQ_XP = REQUIRED.reduce(function (s, d) { return s + MAXXP[d.kind]; }, 0);
@@ -92,9 +91,18 @@
   function wc(w) { return "var(" + C.weeks[w].c + ")"; }
   function renderAll() {
     var cal = document.getElementById("cal"), t = totals(), tn = todayNum();
-    cal.innerHTML = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function (d) { return '<div class="dow">' + d + "</div>"; }).join("") +
-      new Array(new Date(CFG.year, CFG.month, 1).getDay() + 1).join('<div class="blank"></div>');
-    DAYS.forEach(function (day) {
+    // October 1–31 in order, grouped by theme (no weekday columns, so the same layout works every year)
+    cal.innerHTML = "";
+    var groups = [];
+    DAYS.forEach(function (day) { var g = groups[groups.length - 1]; if (!g || g.w !== day.w) groups.push(g = { w: day.w, days: [] }); g.days.push(day); });
+    groups.forEach(function (g) {
+      var first = g.days[0].d, last = g.days[g.days.length - 1].d;
+      var sec = document.createElement("section"); sec.className = "wk"; sec.style.setProperty("--c", wc(g.w));
+      sec.innerHTML = '<h3 class="wkh"><span>' + esc(C.weeks[g.w].n) + '</span><small>October ' + first + (last !== first ? "–" + last : "") + "</small></h3>";
+      var row = document.createElement("div"); row.className = "grid"; sec.appendChild(row); cal.appendChild(sec);
+      g.days.forEach(function (day) { addDay(row, day); });
+    });
+    function addDay(row, day) {
       var b = document.createElement("button"); b.type = "button";
       var lock = !unlocked(day.d), x = dayXP(day), max = MAXXP[day.kind], done = dayDone(day);
       b.className = "day " + (day.kind === "bonus" ? "bonus " : "") + (day.kind === "boss" ? "boss " : "") + (lock ? "locked " : "") + (day.d === tn ? "today " : "") + (done ? "done" : x ? "part" : "");
@@ -105,8 +113,8 @@
       b.setAttribute("aria-label", "October " + day.d + ", " + kind + ": " + day.title + ". " + (lock ? "Locked until October " + day.d : done ? "Complete" : x + " of " + max + " XP"));
       if (lock) b.setAttribute("aria-disabled", "true");
       b.onclick = function () { if (lock) toast("This unlocks on October " + day.d + "."); else openDay(day); };
-      cal.appendChild(b);
-    });
+      row.appendChild(b);
+    }
     document.getElementById("pct").textContent = t.pct + "%";
     document.getElementById("ringlbl").setAttribute("aria-label", "Course score " + t.pct + " percent");
     document.getElementById("arc").setAttribute("stroke-dashoffset", (314.16 * (1 - t.pct / 100)).toFixed(1));
@@ -133,7 +141,7 @@
     var msg = (n ? "Welcome, <b>" + esc(n.split(" ")[0]) + "</b>. " : "Welcome, agent. ");
     if (CFG.unlockAll) msg += CFG.edition === "lms" ? '<span class="tag">Instructor preview</span> All 31 days are unlocked in this preview copy.' : "All 31 days are open. Go in any order.";
     else if (!open) msg += "The calendar opens on <b>October 1, " + CFG.year + "</b>.";
-    else if (tn) msg += "Today is <b>" + DOW[now.getDay()] + ", October " + tn + "</b>. " + open + " of 31 days are open. Missed days stay open, so you can catch up anytime.";
+    else if (tn) msg += "Today is <b>October " + tn + "</b>. " + open + " of 31 days are open. Missed days stay open, so you can catch up anytime.";
     else msg += "All " + open + " days are open. Finish any you missed.";
     msg += ' <a class="tag unoff" href="#citations" data-cite>Unofficial instructor-made resource · About &amp; sources</a>';
     if (!SCORM.isLive()) msg += CFG.edition === "web" ? ' <span class="src">Your progress is saved in this browser on this device.</span>' : ' <span class="src">(Not connected to Canvas: progress is saved in this browser only.)</span>';
@@ -165,7 +173,7 @@
     lastFocus = document.activeElement;
     cur = day; var P = points(day), st = steps(day), n = 0, w = C.weeks[day.w];
     function head(k, label) { n++; return '<h4>' + n + " · " + label + ' <span class="pts" data-p="' + P[k] + '">' + P[k] + " XP</span></h4>"; }
-    var h = '<div class="phead" style="background:' + wc(day.w) + '"><div class="pd">' + day.d + '</div><div><small>' + DOW[new Date(CFG.year, CFG.month, day.d).getDay()] + ", October " + day.d + " · " + esc(w.n) + '</small><h3 id="ptitle">' + esc(day.title) + "</h3><small>" + MAXXP[day.kind] + " XP" + (day.kind === "bonus" ? " bonus (extra credit)" : "") + (day.intro ? " · " + day.intro : "") + '</small></div><button class="x" aria-label="Close lesson">×</button></div><div class="pprog"><i></i></div><div class="pbody">';
+    var h = '<div class="phead" style="background:' + wc(day.w) + '"><div class="pd">' + day.d + '</div><div><small>' + "October " + day.d + " · " + esc(w.n) + '</small><h3 id="ptitle">' + esc(day.title) + "</h3><small>" + MAXXP[day.kind] + " XP" + (day.kind === "bonus" ? " bonus (extra credit)" : "") + (day.intro ? " · " + day.intro : "") + '</small></div><button class="x" aria-label="Close lesson">×</button></div><div class="pprog"><i></i></div><div class="pbody">';
     if (day.d === 31) h += '<div id="certbox"></div>';
     if (day.video) {
       h += '<div class="step" id="s-video" style="--c:' + wc(day.w) + '">' + head("video", "Watch") + frame(day.video) + '<div class="row"><button class="btn" data-mark="video">Mark video watched</button></div>';
@@ -309,10 +317,8 @@
   };
   document.getElementById("reglink").href = CFG.kitUrl;
   document.getElementById("themeName").textContent = CFG.theme.name + (CFG.theme.year === CFG.year ? "" : " (" + CFG.theme.year + ")");
-  document.getElementById("monthTitle").textContent = "October " + CFG.year;
-  document.title = "Cyber October " + CFG.year;
   document.getElementById("regchk").onchange = function (e) { if (e.target.checked && !(flags & 1)) { flags |= 1; persist(); renderAll(); toast("+50 XP · Welcome to the Workforce Risk Division"); } };
-  document.getElementById("legend").innerHTML = Object.keys(C.weeks).map(function (k) { return '<span style="--c:' + wc(k) + '">' + esc(C.weeks[k].n) + "</span>"; }).join("");
+
 
   SCORM.init(); load(); hello(); library(); renderAll(); persist();
   window.CYBEROCT = { steps: steps, points: points, totals: totals, REQ_XP: REQ_XP, open: openDay, render: renderAll };   // test hooks

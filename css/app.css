@@ -97,7 +97,9 @@ button{font:inherit;cursor:pointer}
 .legend span{display:flex;align-items:center;gap:6px}
 .legend span::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--c)}
 .grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
-.dow{font:700 13px var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-inline:6px}
+.wk{margin-bottom:18px}
+.wkh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 8px;font:700 19px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.03em;color:var(--c);border-bottom:2px solid var(--c);padding-bottom:4px}
+.wkh small{font:600 12px var(--f-mono);letter-spacing:.04em;color:var(--muted);text-transform:none}
 .day{position:relative;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 9px 9px;min-height:128px;display:flex;flex-direction:column;gap:3px;border-top:5px solid var(--c);transition:transform .12s,box-shadow .12s}
 .day:hover:not(.locked){transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow)}
 .day .d{font:800 30px/0.9 var(--f-display);font-variant-numeric:tabular-nums}
@@ -298,7 +300,6 @@ details.cites[open] summary .src::after{content:" ▾"}
 
 @media (max-width:760px){
   .grid{grid-template-columns:1fr}
-  .dow,.blank{display:none}
   .day{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 12px;border-top-width:1px;border-left:6px solid var(--c)}
   .day .d{width:42px}
   .day .t{flex:1 1 60%}
