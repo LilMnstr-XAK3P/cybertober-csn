@@ -1,6 +1,7 @@
 /* SCORM 1.2 wrapper: finds the LMS API in parent/opener frames; falls back to localStorage outside an LMS. */
 var SCORM = (function () {
-  var api = null, live = false, LS = "cyberoct26";
+  var api = null, live = false;
+  function LS() { return "cyberoct-" + ((window.CONTENT && CONTENT.config.year) || ""); }   // one save per course year
 
   function find(win) {
     var tries = 0;
@@ -33,7 +34,7 @@ var SCORM = (function () {
   }
   function load() {
     if (live) return get("cmi.suspend_data");
-    try { return localStorage.getItem(LS) || ""; } catch (e) { return ""; }
+    try { return localStorage.getItem(LS()) || ""; } catch (e) { return ""; }
   }
   function save(data, score, passed) {
     if (live) {
@@ -43,7 +44,7 @@ var SCORM = (function () {
       set("cmi.core.exit", "suspend");
       commit();
     } else {
-      try { localStorage.setItem(LS, data); } catch (e) {}
+      try { localStorage.setItem(LS(), data); } catch (e) {}
     }
   }
   function name() {

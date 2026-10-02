@@ -1,6 +1,21 @@
-/* Cyber October 2026 — app shell: calendar, unlocking, lessons, XP, badges, SCORM reporting. */
+/* Cyber October — app shell (reusable every year): calendar, unlocking, lessons, XP, badges, SCORM reporting. */
 (function () {
   var C = CONTENT, CFG = C.config, esc = GAMES.esc;
+  var now = new Date();
+  CFG.year = CFG.year || now.getFullYear();                 // the course runs in the current year's October
+  (function fillTokens() {                                  // {{year}}, {{theme}}… in content text
+    var TH = CFG.theme, cur = TH.year === CFG.year;
+    var T = { year: CFG.year, theme: TH.name, themeBlurb: TH.blurb, themeWhy: TH.why,
+      themeIntro: cur ? "This year\u2019s theme is" : "The " + TH.year + " theme was",
+      themeQ: cur ? "this year\u2019s Cybersecurity Awareness Month theme" : "the " + TH.year + " Cybersecurity Awareness Month theme" };
+    function walk(o) {
+      for (var k in o) {
+        if (typeof o[k] === "string") o[k] = o[k].replace(/\{\{(\w+)\}\}/g, function (m, t) { return t in T ? T[t] : m; });
+        else if (o[k] && typeof o[k] === "object") walk(o[k]);
+      }
+    }
+    walk(C.days); walk(C.library);
+  })();
   var KEYS = ["video", "kb4", "read", "g0", "g1", "quiz"];          // fixed bit order (do not reorder: saved progress depends on it)
   var WEIGHT = { video: 2, kb4: 2.5, read: 2, g0: 3, g1: 3, quiz: 3 };
   var MAXXP = { core: 100, tabletop: 100, bonus: 50, boss: 200 };
@@ -40,7 +55,6 @@
   function dayDone(day) { return steps(day).every(function (k) { return has(day.d, k); }); }
 
   /* ---------- dates ---------- */
-  var now = new Date();
   function unlocked(d) {
     if (CFG.unlockAll) return true;
     return now >= new Date(CFG.year, CFG.month, d, 0, 0, 0);
@@ -163,7 +177,7 @@
       h += '<div class="step" id="s-kb4">' + head("kb4", "KnowBe4 module: " + esc(day.kb4.title)) +
         '<div class="vid kbf"><iframe src="' + url + '" title="KnowBe4 module: ' + esc(day.kb4.title) + '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>' +
         '<div class="row"><a class="btn ghost" href="' + url + '" target="_blank" rel="noopener">Open in new tab ↗</a><button class="btn" data-mark="kb4">I finished the module</button></div>' +
-        '<p class="src">Module not showing? Some browsers block it inside Canvas. Use “Open in new tab.” KnowBe4 offers this module free through October 31, 2026.</p>' +
+        '<p class="src">Module not showing? Some browsers block it inside Canvas. Use “Open in new tab.” KnowBe4 offers its Cybersecurity Awareness Month modules free for a limited time each October.</p>' +
         '<div class="regnote"><b>Get the full KnowBe4 kit.</b> Register free to unlock all of this month\'s modules, posters, character cards and webinars. <a href="' + CFG.kitUrl + '" target="_blank" rel="noopener">Register on KnowBe4 ↗</a></div></div>';
     }
     if (day.read) {
@@ -232,7 +246,7 @@
     var t = totals();
     if (!(dayDone(BY[31]) && t.passed)) { box.innerHTML = '<div class="callout" style="--c:var(--boss)"><b>Certificate:</b> finish today\'s Jeopardy board and final check, and reach ' + CFG.passPct + "% overall, to unlock your Cyber Defender certificate. Your score right now is " + t.pct + "%.</div>"; return; }
     var n = SCORM.name() || "Cyber Defender";
-    box.innerHTML = '<div class="cert"><p>Cybersecurity Awareness Month 2026 · “Securing the Next 250”</p><h3>Certificate of Completion</h3><p>This certifies that</p><div class="nm">' + esc(n) + '</div><p>completed <b>Cyber October 2026</b> with a score of <b>' + t.pct + '%</b> and earned the rank of <b>Cyber Defender</b>.</p><p>' + esc(CFG.author) + ", " + esc(CFG.authorTitle) + '</p><p class="src" style="color:#53627A">October 31, 2026 · Unofficial certificate of course completion issued by the instructor. Not an official institutional credential.</p></div><div class="row"><button class="btn" data-print>Print or save as PDF</button></div>';
+    box.innerHTML = '<div class="cert"><p>Cybersecurity Awareness Month ' + CFG.year + ' · “' + esc(CFG.theme.name) + '”</p><h3>Certificate of Completion</h3><p>This certifies that</p><div class="nm">' + esc(n) + '</div><p>completed <b>Cyber October ' + CFG.year + '</b> with a score of <b>' + t.pct + '%</b> and earned the rank of <b>Cyber Defender</b>.</p><p>' + esc(CFG.author) + ", " + esc(CFG.authorTitle) + '</p><p class="src" style="color:#53627A">October 31, ' + CFG.year + ' · Unofficial certificate of course completion issued by the instructor. Not an official institutional credential.</p></div><div class="row"><button class="btn" data-print>Print or save as PDF</button></div>';
     box.querySelector("[data-print]").onclick = function () { try { window.print(); } catch (e) { toast("Printing isn't available here. Take a screenshot instead."); } };
   }
 
@@ -272,7 +286,7 @@
 
   function footer() {
     var who = "Created by " + esc(CFG.author) + ", " + esc(CFG.authorTitle), disc = CFG.disclaimer;
-    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Cybersecurity Awareness Month 2026 · “Securing the Next 250.”</p>";
+    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Cybersecurity Awareness Month ' + CFG.year + ' · “' + esc(CFG.theme.name) + '.”</p>";
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-cite]"); if (!a) return;
@@ -294,6 +308,9 @@
     openDay(pick);
   };
   document.getElementById("reglink").href = CFG.kitUrl;
+  document.getElementById("themeName").textContent = CFG.theme.name + (CFG.theme.year === CFG.year ? "" : " (" + CFG.theme.year + ")");
+  document.getElementById("monthTitle").textContent = "October " + CFG.year;
+  document.title = "Cyber October " + CFG.year;
   document.getElementById("regchk").onchange = function (e) { if (e.target.checked && !(flags & 1)) { flags |= 1; persist(); renderAll(); toast("+50 XP · Welcome to the Workforce Risk Division"); } };
   document.getElementById("legend").innerHTML = Object.keys(C.weeks).map(function (k) { return '<span style="--c:' + wc(k) + '">' + esc(C.weeks[k].n) + "</span>"; }).join("");
 

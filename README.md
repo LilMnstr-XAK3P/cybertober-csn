@@ -1,10 +1,10 @@
-# Cyber October 2026
+# Cyber October
 
-An interactive Cybersecurity Awareness Month course for College of Southern Nevada students, built as an October 2026 calendar: a lesson every weekday, a tabletop mission every Friday, weekend bonus days and a Halloween Boss Fight.
+An interactive Cybersecurity Awareness Month course for College of Southern Nevada students, built as an October calendar that reruns every year: a lesson every weekday, a tabletop mission every Friday, weekend bonus days and a Halloween Boss Fight.
 
 **Open the course:** https://lilmnstr-xak3p.github.io/csn-cyber-october/
 
-- Days unlock on their October 2026 date. Missed days stay open.
+- Days unlock on their October date each year. Missed days stay open.
 - Progress is saved in your browser on the device you use. Taking the course in Canvas? Use the Canvas copy so your score is recorded.
 
 Created by Lily Morningstar, Cybersecurity Instructor. This is an instructor-made learning resource, not an official College of Southern Nevada publication. The CSN logo is used with approval from CSN Marketing. Content is adapted, with citations on the site, from the KnowBe4 2026 Cybersecurity Awareness Month kit, CISA / Secure Our World, NIST, the National Cybersecurity Alliance and the FTC; those materials remain the property of their owners.

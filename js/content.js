@@ -1,7 +1,15 @@
-/* Cyber October 2026 — course content. Edit here: videos, KnowBe4 module IDs, readings, games, quizzes, resources. */
+/* Cyber October — course content. Reusable every year: the year is automatic. Edit here: videos, KnowBe4 module IDs, readings, games, quizzes, resources. */
 var CONTENT = {
   config: {
-    year: 2026, month: 9,            // month is 0-based: 9 = October
+    year: null,                      // null = the current year (the course reruns every October); or set e.g. 2027
+    month: 9,                        // month is 0-based: 9 = October
+    // Update each year from cisa.gov/cybersecurity-awareness-month. Older text says "the 2026 theme" automatically until you do.
+    theme: {
+      name: "Securing the Next 250",
+      year: 2026,
+      blurb: "As the United States marks its 250th anniversary, the campaign stresses acting now: attackers are using AI to find and exploit weak spots faster than ever.",
+      why: "“Securing the Next 250” ties cybersecurity to the nation's 250th anniversary."
+    },
     unlockAll: false,                // true = instructor preview build (all days open)
     passPct: 70,
     kitUrl: "https://www.knowbe4.com/resources/kits/cybersecurity-awareness-month",
@@ -21,12 +29,12 @@ var CONTENT = {
   },
 
   badges: [
-    { id: "recruit", name: "Recruit", w: "k", days: [1, 2], how: "Complete October 1 and 2.", msg: "You've joined the Workforce Risk Division. Your training starts now." },
+    { id: "recruit", name: "Recruit", w: "k", img: "img/badge-recruit.webp", days: [1, 2], how: "Complete October 1 and 2.", msg: "You've joined the Workforce Risk Division. Your training starts now." },
     { id: "ghost", name: "The Ghost", w: "w1", days: [5, 6, 7, 8, 9], img: "img/badge-ghost.webp", how: "Complete every Week 1 weekday (Oct 5–9).", msg: "Counter-intelligence specialist. Motto: <b>Trust, but verify… then verify again.</b> If an email creates a false sense of urgency, it's probably a trap." },
     { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], img: "img/badge-gadget.webp", how: "Complete every Week 2 weekday (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
     { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], img: "img/badge-locknkey.webp", how: "Complete every Week 3 weekday (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
     { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], img: "img/badge-scout.webp", how: "Complete every Week 4 weekday (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
-    { id: "defender", name: "Cyber Defender", w: "b", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished Cyber October. Open October 31 to see your certificate once your score reaches 70%." }
+    { id: "defender", name: "Cyber Defender", w: "b", img: "img/badge-defender.webp", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished Cyber October. Open October 31 to see your certificate once your score reaches 70%." }
   ],
 
   days: [
@@ -34,7 +42,7 @@ var CONTENT = {
   { d: 1, w: "k", kind: "core", title: "Welcome to Cyber October",
     video: { yt: "2BnIUyXbxYo", title: "Cybersecurity Awareness Month 2026 Kickoff", by: "CISA" },
     read: '<p><b>Cybersecurity Awareness Month</b> has run every October for more than 20 years. CISA and the National Cybersecurity Alliance lead it together, and it reminds everyone to take regular, simple actions that cut risk online.</p>' +
-      '<p>The <b>2026 theme is “Securing the Next 250.”</b> As the United States marks its 250th anniversary, the campaign stresses acting now: attackers are using AI to find and exploit weak spots faster than ever.</p>' +
+      '<p><b>{{themeIntro}} “{{theme}}.”</b> {{themeBlurb}}</p>' +
       '<p>Everything this month builds on <b>four essential behaviors</b>:</p><ul>' +
       '<li><b>Recognize and report phishing.</b> Verify the sender before clicking links or opening attachments.</li>' +
       '<li><b>Use strong passwords and a password manager.</b> Long (16+ characters), random and unique for every account.</li>' +
@@ -56,8 +64,8 @@ var CONTENT = {
         ["Turn on automatic app updates on your phone.", "upd", "Automatic updates make this habit effortless."]],
       end: "You know the four essentials." }],
     quiz: [
-      { q: "What is the 2026 Cybersecurity Awareness Month theme?", o: ["Secure Our World", "Securing the Next 250", "See Yourself in Cyber"], a: 1, why: "“Securing the Next 250” ties cybersecurity to the nation's 250th anniversary." },
-      { q: "Why does the 2026 campaign stress acting now?", o: ["AI is helping attackers find and exploit weaknesses faster", "Passwords are being phased out this year", "Phishing has stopped being a major threat"], a: 0, why: "CISA warns that AI is accelerating how fast attackers find weak spots." },
+      { q: "What is {{themeQ}}?", o: ["Secure Our World", "{{theme}}", "See Yourself in Cyber"], a: 1, why: "{{themeWhy}}" },
+      { q: "Why does the campaign stress acting now?", o: ["AI is helping attackers find and exploit weaknesses faster", "Passwords are being phased out this year", "Phishing has stopped being a major threat"], a: 0, why: "CISA warns that AI is accelerating how fast attackers find weak spots." },
       { q: "Which of these is NOT one of the four essential behaviors?", o: ["Turn on multifactor authentication", "Update software", "Buy a VPN subscription", "Use strong passwords and a password manager"], a: 2, why: "The four are phishing awareness, strong passwords, MFA and updates." }] },
 
   { d: 2, w: "k", kind: "core", title: "The Four Essentials",
@@ -166,7 +174,7 @@ var CONTENT = {
     games: [{ type: "sort", title: "Name That Tactic", prompt: "Match each attack to the technique it uses.",
       bins: [["pre", "Pretexting"], ["imp", "Impersonation / authority"], ["bait", "Baiting"], ["qpq", "Quid pro quo"], ["tail", "Tailgating"]],
       cards: [["A caller says she's from the registrar and needs your student ID and birth date to “fix your transcript.”", "pre", "A made-up story to justify the request."],
-        ["A USB drive labeled “Salary Info 2026” is left in the library.", "bait", "Curiosity is the lure."],
+        ["A USB drive labeled “Salary Info {{year}}” is left in the library.", "bait", "Curiosity is the lure."],
         ["Someone carrying boxes asks you to hold the badge-access door to the server room.", "tail", "Getting in on someone else's access."],
         ["An email from the “Dean” orders you to buy gift cards for an event right away.", "imp", "Authority pressure stops people from questioning."],
         ["A pop-up offers a free gaming gift card if you log in with your school account.", "qpq", "Something “free” in exchange for your credentials."],
@@ -520,11 +528,11 @@ var CONTENT = {
           { name: "Sarah Miller", handle: "@sarah_miller", posts: [["1d", "Can't believe my best friend Bell is already 3 years old today! #PuppyBirthday"], ["2d", "Just bought my dream car! It's a bright blue Mustang. I've wanted one since I graduated in 2018."], ["3d", "Check-in at Red Rock Canyon. So glad to be back in my hometown of Las Vegas!"]],
             opts: ["Bell3!", "Vegas2018!", "BlueMustang"], best: 1, why: "Sarah used her hometown and graduation year. Bell the puppy was a false lead." },
           { name: "Fatima Al-Sayed", handle: "@fatimaa", posts: [["1d", "My cat, Zina, loves sitting on my blueprints while I work."], ["2d", "Spending the weekend stargazing at the Al-Qudra lake."], ["3d", "Beautiful sunset over the Jumeirah coastline tonight."]],
-            opts: ["stargazerZin4", "Jumeirah2026", "AlQudraLake!"], best: 0, why: "Her pet's name (Zina) plus her hobby (stargazing). Swapping a for 4 doesn't fool cracking tools." },
+            opts: ["stargazerZin4", "Jumeirah{{year}}", "AlQudraLake!"], best: 0, why: "Her pet's name (Zina) plus her hobby (stargazing). Swapping a for 4 doesn't fool cracking tools." },
           { name: "Elena Rodriguez", handle: "@erodriguez", posts: [["1d", "Happy Birthday to my little princess, Sophia! Can't believe she's turning 7 today."], ["2d", "Finally visiting Paris! It's been my dream destination since I was a kid."], ["3d", "Morning routine: a double espresso and a walk on Maple Street."]],
             opts: ["MapleStreet1", "SophiaParis7", "Espresso!!"], best: 1, why: "Her daughter's name and age plus a travel spot. Looks decent, but family and travel details are public." },
           { name: "Arjun Nair", handle: "@arjun_nair", posts: [["1d", "Watching the IPL finals tonight! Go Bangalore!"], ["2d", "Can't wait to see the Himalayas on my vacation next month!"], ["3d", "My first car was a 2004 blue hatchback. It survived so many trips!"]],
-            opts: ["GoBangalore!", "Himalayas2026", "Arjun2004hatchback"], best: 2, why: "His own name plus his first car. Long, but built entirely from public facts." },
+            opts: ["GoBangalore!", "Himalayas{{year}}", "Arjun2004hatchback"], best: 2, why: "His own name plus his first car. Long, but built entirely from public facts." },
           { name: "David Chen", handle: "@david_chen", posts: [["1d", "Cooper loved the hiking trail at Blue Ridge this weekend."], ["2d", "My first car was a 1992 silver sedan. I miss that car."], ["3d", "Watching the Lakers game — hope they pull off a win!"]],
             opts: ["Lakers1992", "Cooper_loves_hiking", "SilverSedan92"], best: 1, why: "His dog's name and their favorite activity. Underscores don't make an obvious sentence safe." }],
         end: "Attackers automate exactly what you just did, only much faster." },
@@ -541,7 +549,7 @@ var CONTENT = {
         end: "Make profiles private, and keep password clues offline." }] },
 
   { d: 24, w: "w3", kind: "bonus", title: "Cybersecurity Career Week",
-    read: '<p><b>NICE Cybersecurity Career Week</b> runs <b>October 19–24, 2026</b>, led by NIST\'s NICE program. It celebrates the many paths into cybersecurity. This is your week to explore.</p>' +
+    read: '<p><b>NICE Cybersecurity Career Week</b> is held every October by NIST\'s NICE program (check NIST\'s site for this year\'s dates). It celebrates the many paths into cybersecurity. This is your week to explore.</p>' +
       '<p>The <b>NICE Framework</b> describes cybersecurity work as <b>work roles</b> grouped into categories such as Oversight & Governance, Design & Development, Implementation & Operation, Protection & Defense, and Investigation. Employers and schools, including CAE-designated colleges like CSN, use it to map skills to jobs.</p>' +
       '<div class="row"><a class="btn ghost" href="https://www.nist.gov/itl/applied-cybersecurity/nice/events/cybersecurity-career-week" target="_blank" rel="noopener">Career Week events ↗</a><a class="btn ghost" href="https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center" target="_blank" rel="noopener">NICE Framework ↗</a><a class="btn ghost" href="https://www.csn.edu/cybercenter" target="_blank" rel="noopener">CSN Cyber Center ↗</a></div>',
     src: "Source: NIST NICE Cybersecurity Career Week and NICE Framework Resource Center.",
@@ -655,7 +663,7 @@ var CONTENT = {
   { d: 29, w: "w4", kind: "core", title: "Incident Response Plans",
     video: { kal: "1_2jgqc4oj", title: "NIST Cybersecurity Framework (CSF) 2.0", by: "NIST" },
     extras: [{ yt: "8XuqFwgFYUk", title: "Introduction to Log Management", by: "CISA" }],
-    read: '<p>Incidents happen. Organizations that plan ahead recover faster. CISA\'s <b>new actions for 2026</b> (from its Cybersecurity Performance Goals) are:</p><ul>' +
+    read: '<p>Incidents happen. Organizations that plan ahead recover faster. CISA added these <b>actions in 2026</b> (Cybersecurity Performance Goals 2.0):</p><ul>' +
       '<li><b>Have an incident response (IR) plan and use it.</b> Exercise it for common threats like ransomware, include leadership and legal counsel, and review and drill it at least once a year.</li>' +
       '<li><b>Be prepared for system disruptions.</b> Plan how to keep essential work going without key systems or even internet access, for example by switching to paper or radio.</li>' +
       '<li>Also: <b>use logging</b> to spot attackers, <b>back up</b> critical data, and <b>encrypt</b> data and devices.</li></ul>' +
@@ -674,7 +682,7 @@ var CONTENT = {
         ["Restore systems from clean backups", "rc", "Getting back to normal operations."]],
       end: "Govern sits at the center and guides the other five." }],
     quiz: [
-      { q: "How often should an IR plan be reviewed and drilled, at minimum?", o: ["Once a year", "Every 10 years", "Only after an incident"], a: 0, why: "CISA's 2026 goals call for at least an annual review and drill." },
+      { q: "How often should an IR plan be reviewed and drilled, at minimum?", o: ["Once a year", "Every 10 years", "Only after an incident"], a: 0, why: "CISA's Cybersecurity Performance Goals call for at least an annual review and drill." },
       { q: "Which function was added in NIST CSF 2.0?", o: ["Govern", "Protect", "Detect"], a: 0 },
       { q: "Being “prepared for system disruptions” means:", o: ["Having a way to keep essential work going without key systems", "Never turning computers off", "Buying more servers"], a: 0 }] },
 
@@ -741,12 +749,12 @@ var CONTENT = {
         { q: "Forward spam texts to…", o: ["7726", "911", "411"], a: 0 },
         { q: "Business email compromise goes to IT and…", o: ["The FBI's ic3.gov", "The sender", "Your followers"], a: 0 },
         { q: "First step in KnowBe4's ransomware checklist:", o: ["Pay the ransom", "Report the incident immediately", "Post on social media"], a: 1 },
-        { q: "How often should an IR plan be drilled, at minimum (CISA 2026)?", o: ["Annually", "Every 5 years", "Never"], a: 0 }] }] }],
+        { q: "How often should an IR plan be drilled, at minimum (CISA)?", o: ["Annually", "Every 5 years", "Never"], a: 0 }] }] }],
     quizTitle: "Final check",
     quizPass: 7,
     quiz: [
-      { q: "What is the 2026 Cybersecurity Awareness Month theme?", o: ["Securing the Next 250", "Secure Our World", "Do Your Part. #BeCyberSmart"], a: 0 },
-      { q: "Which is the strongest password?", o: ["Summer2026!", "maple rocket lagoon violin harbor", "P@ssw0rd123"], a: 1 },
+      { q: "What is {{themeQ}}?", o: ["{{theme}}", "Secure Our World", "Do Your Part. #BeCyberSmart"], a: 0 },
+      { q: "Which is the strongest password?", o: ["Summer{{year}}!", "maple rocket lagoon violin harbor", "P@ssw0rd123"], a: 1 },
       { q: "An email from your “Dean” urgently requests gift cards. The best response is:", o: ["Buy them quickly", "Verify with the Dean through a known channel and report the email", "Reply asking if it's real"], a: 1 },
       { q: "Which MFA method resists phishing best?", o: ["A security key or passkey", "A text message code", "Security questions"], a: 0 },
       { q: "You find a shared folder of student SSNs open to anyone with the link. This is:", o: ["A possible data breach to report immediately", "Fine if it's on Google Drive", "Phishing"], a: 0 },
@@ -761,10 +769,10 @@ var CONTENT = {
   library: [
     { group: "Start here", items: [
       { t: "CSN Cyber Center", d: "Your campus home for cybersecurity programs, clubs, competitions and events.", u: "https://www.csn.edu/cybercenter" },
-      { t: "KnowBe4 Cybersecurity Awareness Month Kit", d: "Register free for the 2026 kit behind this course: modules, posters, tabletop exercises and learning documents.", u: "https://www.knowbe4.com/resources/kits/cybersecurity-awareness-month", show: "knowbe4.com/resources/kits/cybersecurity-awareness-month" },
+      { t: "KnowBe4 Cybersecurity Awareness Month Kit", d: "Register free for KnowBe4's Cybersecurity Awareness Month kit: modules, posters, tabletop exercises and learning documents.", u: "https://www.knowbe4.com/resources/kits/cybersecurity-awareness-month", show: "knowbe4.com/resources/kits/cybersecurity-awareness-month" },
       { t: "National Cybersecurity Alliance", d: "Stay Safe Online tips, videos and Cybersecurity Awareness Month resources.", u: "https://www.staysafeonline.org/" },
       { t: "CISA Cyber Hygiene Services", d: "Free vulnerability scanning and web application scanning for eligible organizations.", u: "https://www.cisa.gov/cyber-hygiene-services" },
-      { t: "CISA Cybersecurity Awareness Month", d: "The 2026 toolkit, posters, tip sheets and presentations.", u: "https://www.cisa.gov/cybersecurity-awareness-month" },
+      { t: "CISA Cybersecurity Awareness Month", d: "This year's toolkit, posters, tip sheets and presentations.", u: "https://www.cisa.gov/cybersecurity-awareness-month" },
       { t: "Secure Our World", d: "CISA's four essentials: phishing, passwords, MFA and updates.", u: "https://www.cisa.gov/secure-our-world" },
       { t: "KnowBe4 CAPY", d: "Free bite-sized safety lessons for you and your family. No login needed.", u: "https://www.knowbe4.com/free-cybersecurity-tools/capy", show: "knowbe4.com/free-cybersecurity-tools/capy" }] },
     { group: "Report it", items: [
@@ -774,7 +782,7 @@ var CONTENT = {
       { t: "FTC IdentityTheft.gov", d: "Report identity theft and get a personal recovery plan.", u: "https://www.identitytheft.gov/" }] },
     { group: "From NIST", intro: "NIST supports Cybersecurity Awareness Month with standards, career resources and short videos. These are the most useful for CSN cybersecurity students.", items: [
       { t: "NIST Cybersecurity Awareness Month", d: "NIST's hub of resources, events and Cybersecurity Career Week.", u: "https://www.nist.gov/cybersecurity-awareness-month/resources" },
-      { t: "Cybersecurity Career Week · Oct 19–24, 2026", d: "NICE's week of events on careers in cybersecurity.", u: "https://www.nist.gov/itl/applied-cybersecurity/nice/events/cybersecurity-career-week", show: "nist.gov/…/nice/events/cybersecurity-career-week" },
+      { t: "NICE Cybersecurity Career Week", d: "NICE's yearly October week of events on careers in cybersecurity.", u: "https://www.nist.gov/itl/applied-cybersecurity/nice/events/cybersecurity-career-week", show: "nist.gov/…/nice/events/cybersecurity-career-week" },
       { t: "Free & Low-Cost Online Learning", d: "NICE's list of free and low-cost cybersecurity courses and training.", u: "https://www.nist.gov/itl/applied-cybersecurity/nice/resources/online-learning-content", show: "nist.gov/…/nice/resources/online-learning-content" },
       { t: "NICE Framework Resource Center", d: "The work roles, tasks and skills that define cybersecurity jobs.", u: "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", show: "nist.gov/…/nice-framework-resource-center" },
       { t: "NIST: Learn About Phishing", d: "How phishing works and why people fall for it.", u: "https://csrc.nist.gov/phishing" },
@@ -806,7 +814,7 @@ var CONTENT = {
       'KnowBe4. (2025). <i>Phishing Gets Smarter: How AI Is Changing Online Scams</i> [Learning document].',
       'KnowBe4. (2024). <i>Sensitive Data: Keep it Secret, Keep it Safe</i> [Learning document].',
       'KnowBe4. (2025). <i>Phishing, Physical Security, and Data Breaches, Oh My!</i> [Learning document].',
-      'Posters and badge artwork on this website were created by Lily Morningstar. KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
+      'Posters and badge artwork on this website were created by Lily Morningstar. KnowBe4\'s posters and Specialist character cards are not published on this website.',
       'KnowBe4. (2026). <i>Smishing Frenzy</i> [Interactive training module, free kit access]. <a href="https://training.knowbe4.com/modstore/view/af44ce18-ea58-47c9-a352-fb1f277ec903/en-us" target="_blank" rel="noopener">training.knowbe4.com</a>.'] },
     { group: "Cybersecurity and Infrastructure Security Agency (CISA)", items: [
       'CISA. (2026). <i>Cybersecurity Best Practices</i> [Cybersecurity Awareness Month 2026 presentation]. Source of the 2026 theme “Securing the Next 250” and the new 2026 Cybersecurity Performance Goal actions.',
@@ -818,7 +826,7 @@ var CONTENT = {
     { group: "National Institute of Standards and Technology (NIST)", items: [
       'NIST. (2025). <i>Digital Identity Guidelines</i> (SP 800-63-4). <a href="https://csrc.nist.gov/pubs/sp/800/63/4/final" target="_blank" rel="noopener">csrc.nist.gov/pubs/sp/800/63/4/final</a>.',
       'NIST. (2024). <i>The NIST Cybersecurity Framework (CSF) 2.0</i>. <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">nist.gov/cyberframework</a>.',
-      'NIST NICE. (n.d.). <i>NICE Framework Resource Center</i> and <i>Cybersecurity Career Week</i> (October 19–24, 2026). <a href="https://www.nist.gov/itl/applied-cybersecurity/nice" target="_blank" rel="noopener">nist.gov/itl/applied-cybersecurity/nice</a>.',
+      'NIST NICE. (n.d.). <i>NICE Framework Resource Center</i> and <i>Cybersecurity Career Week</i>. <a href="https://www.nist.gov/itl/applied-cybersecurity/nice" target="_blank" rel="noopener">nist.gov/itl/applied-cybersecurity/nice</a>.',
       'NIST. (n.d.). <i>Cybersecurity Awareness Month resources</i>. <a href="https://www.nist.gov/cybersecurity-awareness-month/resources" target="_blank" rel="noopener">nist.gov/cybersecurity-awareness-month/resources</a>.'] },
     { group: "Other organizations", items: [
       'National Cybersecurity Alliance. (n.d.). <i>Stay Safe Online</i> [Website and video library]. <a href="https://www.staysafeonline.org/" target="_blank" rel="noopener">staysafeonline.org</a>.',
