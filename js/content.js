@@ -22,10 +22,10 @@ var CONTENT = {
 
   badges: [
     { id: "recruit", name: "Recruit", w: "k", days: [1, 2], how: "Complete October 1 and 2.", msg: "You've joined the Workforce Risk Division. Your training starts now." },
-    { id: "ghost", name: "The Ghost", w: "w1", days: [5, 6, 7, 8, 9], how: "Complete every Week 1 weekday (Oct 5–9).", msg: "Counter-intelligence specialist. Motto: <b>Trust, but verify… then verify again.</b> If an email creates a false sense of urgency, it's probably a trap." },
-    { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], how: "Complete every Week 2 weekday (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
-    { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], how: "Complete every Week 3 weekday (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
-    { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], how: "Complete every Week 4 weekday (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
+    { id: "ghost", name: "The Ghost", w: "w1", days: [5, 6, 7, 8, 9], img: "img/badge-ghost.webp", how: "Complete every Week 1 weekday (Oct 5–9).", msg: "Counter-intelligence specialist. Motto: <b>Trust, but verify… then verify again.</b> If an email creates a false sense of urgency, it's probably a trap." },
+    { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], img: "img/badge-gadget.webp", how: "Complete every Week 2 weekday (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
+    { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], img: "img/badge-locknkey.webp", how: "Complete every Week 3 weekday (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
+    { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], img: "img/badge-scout.webp", how: "Complete every Week 4 weekday (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
     { id: "defender", name: "Cyber Defender", w: "b", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished Cyber October. Open October 31 to see your certificate once your score reaches 70%." }
   ],
 
@@ -806,7 +806,7 @@ var CONTENT = {
       'KnowBe4. (2025). <i>Phishing Gets Smarter: How AI Is Changing Online Scams</i> [Learning document].',
       'KnowBe4. (2024). <i>Sensitive Data: Keep it Secret, Keep it Safe</i> [Learning document].',
       'KnowBe4. (2025). <i>Phishing, Physical Security, and Data Breaches, Oh My!</i> [Learning document].',
-      'Posters on this website were created by Lily Morningstar. KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
+      'Posters and badge artwork on this website were created by Lily Morningstar. KnowBe4\'s 2026 posters and Specialist character cards are not published on this website.',
       'KnowBe4. (2026). <i>Smishing Frenzy</i> [Interactive training module, free kit access]. <a href="https://training.knowbe4.com/modstore/view/af44ce18-ea58-47c9-a352-fb1f277ec903/en-us" target="_blank" rel="noopener">training.knowbe4.com</a>.'] },
     { group: "Cybersecurity and Infrastructure Security Agency (CISA)", items: [
       'CISA. (2026). <i>Cybersecurity Best Practices</i> [Cybersecurity Awareness Month 2026 presentation]. Source of the 2026 theme “Securing the Next 250” and the new 2026 Cybersecurity Performance Goal actions.',
