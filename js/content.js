@@ -112,7 +112,7 @@ var CONTENT = {
       '<li><b>Polish isn\'t proof:</b> attackers now use AI to write perfect grammar and copy real logos. Poor spelling is a less common clue than it used to be.</li></ul>' +
       '<div class="callout" style="--c:var(--w1)"><b>What to do:</b> don\'t reply, click, or even hit “unsubscribe.” Report it (use your email\'s Report phishing button or your organization\'s process), then delete it. If it might be real, contact the sender using a phone number or website you already know.</div>',
     src: "Adapted from KnowBe4 “Your Role in Internet Security” and the CISA Secure Our World phishing tip sheet.",
-    docs: [{ f: "docs/kb4-w1-your-role.pdf", t: "Your Role in Internet Security (KnowBe4)" }, { f: "docs/sow-phishing.pdf", t: "Phishing tip sheet (CISA)" }],
+    docs: [{ f: "docs/sow-phishing.pdf", t: "Phishing tip sheet (CISA)" }],
     games: [{ type: "choice", skin: "mail", title: "Phish or Legit?", prompt: "Decide whether each email is a phish.", actions: ["🎣 Phish", "✓ Legit"],
       items: [
         { from: '"CSN IT Help Desk" <helpdesk@csn-edu-support.com>', subj: "ACTION REQUIRED: Password expires in 2 hours", body: 'Your network password expires today. To keep your current password, verify now: <code>http://csn-edu-support.com/keep-password</code>', best: 0, why: "Lookalike domain (csn-edu-support.com is not csn.edu), a 2-hour deadline, and a request to “verify” your password. IT departments don't ask for that by email." },
@@ -275,7 +275,6 @@ var CONTENT = {
       '<li><b>Adaptive attacks:</b> attackers analyze results in real time, fine-tune their messages, and learn from every attempt.</li></ul>' +
       '<p><b>Your defense:</b> the clues that still work are about behavior, not polish. Pause on urgency, check the sender, verify unexpected requests through a channel you already trust, and keep using the core four: strong passwords, MFA, updates and reporting phishing.</p>',
     src: "Adapted from KnowBe4 “Phishing Gets Smarter: How AI Is Changing Online Scams” and CISA's Using AI tip sheet.",
-    docs: [{ f: "docs/kb4-w2-phishing-gets-smarter.pdf", t: "Phishing Gets Smarter (KnowBe4)" }],
     games: [{ type: "choice", skin: "card", title: "Still a Reliable Clue?", prompt: "In the age of AI, is this still a reliable sign of phishing?", actions: ["Reliable red flag", "No longer proof"],
       items: [
         { who: "Clue", text: "The message has spelling and grammar mistakes.", best: 1, why: "Typos still happen, but AI-written phishing is often flawless. A clean message proves nothing." },
@@ -488,7 +487,7 @@ var CONTENT = {
       '<li><b>Is this who I think it is?</b> Be skeptical of unusual requests for information. If you aren\'t sure, stop and contact the person through a method you know is legitimate.</li>' +
       '<li><b>Update promptly:</b> updates patch security holes. Turn on automatic updates, and install alerts for your browser and antivirus as soon as you see them. Don\'t click “Remind me later.”</li></ul>',
     src: "Adapted from KnowBe4 “Sensitive Data: Keep it Secret, Keep it Safe” and the CISA Secure Our World software updates tip sheet.",
-    docs: [{ f: "docs/kb4-w3-sensitive-data.pdf", t: "Sensitive Data: Keep it Secret (KnowBe4)" }, { f: "docs/sow-software-updates.pdf", t: "Software updates tip sheet (CISA)" }],
+    docs: [{ f: "docs/sow-software-updates.pdf", t: "Software updates tip sheet (CISA)" }],
     games: [{ type: "findrisks", title: "Spot the Risks in the Lab", prompt: "You walk into a campus computer lab. Flag every security risk.",
       items: [
         { ic: "🗒️", label: "Sticky note with a password on a monitor", risk: true, why: "Anyone walking by can read it." },
@@ -607,7 +606,6 @@ var CONTENT = {
       '<li><b>Possible data breaches:</b> finding private information where it shouldn\'t be, like a shared folder anyone can open or records in a public place. Report it immediately.</li></ul>' +
       '<p>Don\'t assume someone else will report it. Quick reporting stops small problems from becoming big ones.</p>',
     src: "Adapted from KnowBe4 “Phishing, Physical Security, and Data Breaches, Oh My!” (Week 4 learning document).",
-    docs: [{ f: "docs/kb4-w4-phishing-physical-breaches.pdf", t: "Phishing, Physical Security & Data Breaches (KnowBe4)" }],
     games: [{ type: "sort", title: "What Kind of Incident?", prompt: "Classify each situation, then report it.",
       bins: [["ph", "Phishing"], ["phy", "Physical security"], ["db", "Possible data breach"]],
       cards: [["A text claiming to be from the bookstore asks you to log in to claim a refund.", "ph", "A suspicious message with a link."],
@@ -793,8 +791,7 @@ var CONTENT = {
       { t: "MFA tip sheet", d: "CISA Secure Our World.", u: "docs/sow-mfa.pdf", show: "PDF" },
       { t: "Software updates tip sheet", d: "CISA Secure Our World.", u: "docs/sow-software-updates.pdf", show: "PDF" },
       { t: "Using AI tip sheet", d: "CISA Secure Our World.", u: "docs/sow-using-ai.pdf", show: "PDF" },
-      { t: "Reporting Cybercrime tip sheet", d: "CISA Secure Our World.", u: "docs/sow-reporting-cybercrime.pdf", show: "PDF" },
-      { t: "KnowBe4 learning documents", d: "Your Role in Internet Security · Phishing Gets Smarter · Sensitive Data · Phishing, Physical Security & Data Breaches.", u: "docs/kb4-w1-your-role.pdf", show: "PDF (Week 1; others in each lesson)" }] }
+      { t: "Reporting Cybercrime tip sheet", d: "CISA Secure Our World.", u: "docs/sow-reporting-cybercrime.pdf", show: "PDF" },] }
   ],
 
   /* Sources & citations (videos and web links are added automatically from the lessons and library). */
