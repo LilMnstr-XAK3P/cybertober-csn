@@ -417,6 +417,7 @@ var CONTENT = {
 
   /* ================= WEEK 3 · DATA SECURITY & PASSWORDS ================= */
   { d: 19, w: "w3", kind: "core", title: "Long, Random, Unique",
+    poster: { f: "img/oct19-strong-passwords-dont-reuse-it.webp", alt: "Poster: Strong Passwords Don't Reuse It. Created by Lily Morningstar." },
     video: { yt: "0Wd3JoUHXno", title: "Security Awareness Episode 1: Passwords", by: "National Cybersecurity Alliance" },
     extras: [{ yt: "XXrbut5xRbE", title: "How to Make Strong Passwords! (We Can Secure Our World)", by: "CISA" }, { yt: "KyHrFe2ljXI", title: "Password Security: Sing a Song · Kubikle", by: "National Cybersecurity Alliance" }],
     kb4: { id: null, title: "Strong Passwords, Secure Accounts" },
@@ -435,6 +436,7 @@ var CONTENT = {
       { q: "According to NIST guidance, what matters most?", o: ["Changing passwords every 30 days", "Length, and not using known-compromised passwords", "Using at least one symbol"], a: 1 }] },
 
   { d: 20, w: "w3", kind: "core", title: "Password Managers & Passkeys",
+    poster: { f: "img/oct20-password-power.webp", alt: "Poster: Password Power. Created by Lily Morningstar." },
     video: { yt: "yIPl7JYUD8Q", title: "We Got Passwords! · Kubikle (Part 1, Episode 11)", by: "National Cybersecurity Alliance" },
     read: '<p>Nobody can memorize 100 unique 16-character passwords. That\'s what a <b>password manager</b> is for. It:</p><ul>' +
       '<li><b>Generates</b> strong passwords and <b>stores</b> them encrypted.</li>' +
@@ -458,6 +460,7 @@ var CONTENT = {
       { q: "Where does CISA suggest you research password managers?", o: ["Pop-up ads", "Trusted sources such as Consumer Reports", "Random forums"], a: 1 }] },
 
   { d: 21, w: "w3", kind: "core", title: "Turn On MFA",
+    poster: { f: "img/oct21-strong-passwords-turn-on-mfa.webp", alt: "Poster: Strong Passwords Turn On Mfa. Created by Lily Morningstar." },
     video: { yt: "sQ5oFX8ZMNA", title: "How to Turn on MFA! (We Can Secure Our World)", by: "CISA" },
     extras: [{ kal: "1_qafyxvdp", title: "Protecting Your Small Business: Multi-Factor Authentication", by: "NIST" }],
     read: '<p><b>Multifactor authentication</b> (MFA) adds a second step to your login: something you <b>have</b> (phone, security key) or something you <b>are</b> (fingerprint, face) on top of something you <b>know</b> (password). It makes you much less likely to get hacked.</p>' +
@@ -476,6 +479,7 @@ var CONTENT = {
       { q: "MFA adds a factor beyond your password, such as:", o: ["Your username", "A fingerprint or a code from your phone", "Your favorite color"], a: 1 }] },
 
   { d: 22, w: "w3", kind: "core", title: "Keep It Secret, Keep It Safe",
+    poster: { f: "img/oct22-sensitive-data-keep-it-secret.webp", alt: "Poster: Sensitive Data Keep It Secret. Created by Lily Morningstar." },
     video: { yt: "hsNRrEnB_aM", title: "Security Awareness Episode 2: Data Handling", by: "National Cybersecurity Alliance" },
     extras: [{ yt: "zCcX6aSXcLI", title: "How to Update Software! (We Can Secure Our World)", by: "CISA" }, { yt: "EgBtKZzM_xI", title: "How to Set Automatic Updates on Windows", by: "National Cybersecurity Alliance" }, { yt: "a4bq1vHKNZI", title: "How to Set Automatic Updates on iPhone", by: "National Cybersecurity Alliance" }],
     read: '<p>Sensitive data in the wrong hands can be disastrous. Habits that keep it safe:</p><ul>' +
@@ -503,6 +507,7 @@ var CONTENT = {
       { q: "Why install updates promptly?", o: ["They patch security weaknesses attackers exploit", "They change your wallpaper", "They're required by law"], a: 0 }] },
 
   { d: 23, w: "w3", kind: "tabletop", title: "Tabletop: The Password Guessing Game", intro: "Mission briefing inside",
+    poster: { f: "img/oct23-passwords-are-not-clues.webp", alt: "Poster: Passwords Are Not Clues. Created by Lily Morningstar." },
     extras: [],
     video: { yt: "o44JF50rsJc", title: "How to Change Privacy and Security Settings on Instagram", by: "National Cybersecurity Alliance" },
     readTitle: "Mission briefing",
