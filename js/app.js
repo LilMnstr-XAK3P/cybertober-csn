@@ -294,7 +294,7 @@
 
   function footer() {
     var who = "Created by " + esc(CFG.author) + ", " + esc(CFG.authorTitle), disc = CFG.disclaimer;
-    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Cybersecurity Awareness Month ' + CFG.year + ' · “' + esc(CFG.theme.name) + '.”</p>";
+    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Created October 1, 2026.</p>";
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-cite]"); if (!a) return;
