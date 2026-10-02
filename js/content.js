@@ -574,6 +574,7 @@ var CONTENT = {
 
   /* ================= WEEK 4 · INCIDENT REPORTING ================= */
   { d: 26, w: "w4", kind: "core", title: "One Report, Shared Protection",
+    poster: { f: "img/oct26-report-it-fast.webp", alt: "Poster: Report It Fast. Created by Lily Morningstar." },
     video: { yt: "kOOuGoq7NVQ", title: "Why Report Fraud? (short version)", by: "Federal Trade Commission" },
     extras: [{ yt: "RsBgQ559bYs", title: "How to Report Phishing in Gmail", by: "National Cybersecurity Alliance" }],
     kb4: { id: null, title: "Hack-Proof Habits: Reporting Part 1" },
@@ -597,6 +598,7 @@ var CONTENT = {
       { q: "The most dangerous reaction to a mistake is:", o: ["Reporting it too quickly", "Staying silent", "Asking IT for help"], a: 1 }] },
 
   { d: 27, w: "w4", kind: "core", title: "Phishing, Physical, Breaches. Oh My!",
+    poster: { f: "img/oct27-phishing-physical-security-data-breaches.webp", alt: "Poster: Phishing Physical Security Data Breaches. Created by Lily Morningstar." },
     video: { yt: "QiaIL-J9Vds", title: "Security Awareness Episode 3: Computer Theft", by: "National Cybersecurity Alliance" },
     kb4: { id: null, title: "Hack-Proof Habits: Reporting Part 2" },
     read: '<p>When you spot a security problem, quick reporting helps protect everyone. Three kinds to watch for:</p><ul>' +
@@ -623,6 +625,7 @@ var CONTENT = {
       { q: "Why report even small issues?", o: ["Quick reporting stops small problems from becoming big ones", "To get people in trouble", "Small issues never matter"], a: 0 }] },
 
   { d: 28, w: "w4", kind: "core", title: "Reporting Cybercrime",
+    poster: { f: "img/oct28-incident-reporting-quick-guide.webp", alt: "Poster: Incident Reporting Quick Guide. Created by Lily Morningstar." },
     video: { yt: "IoKTR4QR6-w", title: "How to Report Fraud at ReportFraud.ftc.gov", by: "Federal Trade Commission" },
     read: '<p>Where you report depends on what happened:</p><ul>' +
       '<li><b>General cybercrime:</b> FBI Internet Crime Complaint Center at <b>ic3.gov</b>, and CISA at <b>cisa.gov/report</b>.</li>' +
@@ -692,7 +695,7 @@ var CONTENT = {
       '<li><b>Department Manager:</b> business impact and continuity for the affected unit.</li></ul>' +
       '<p>Mission part 1: put the first response steps in order. Part 2: route each complication to the right role.</p>',
     src: "Adapted from the KnowBe4 Tabletop Experience “Incident Response” and CISA ransomware guidance.",
-    docs: [{ f: "https://csrc.nist.gov/CSRC/media/Projects/ransomware-protection-and-response/documents/NIST_Ransomware_Tips_and_Tactics_Infographic.pdf", t: "NIST Ransomware Tips & Tactics (online)" }],
+    docs: [{ f: "docs/oct30-doc-incident-response-tabletop-packet.pdf", t: "Incident Response Tabletop Packet (by Lily Morningstar)" }, { f: "https://csrc.nist.gov/CSRC/media/Projects/ransomware-protection-and-response/documents/NIST_Ransomware_Tips_and_Tactics_Infographic.pdf", t: "NIST Ransomware Tips & Tactics (online)" }],
     games: [
       { type: "rank", title: "Rapid Response Checklist", prompt: "Put the first six response steps in order, first at the top.",
         items: ["Report the incident immediately (following the escalation policy)", "Mobilize the incident response team", "Isolate affected systems", "Document the incident timeline", "Assess data backup status", "Activate the communication plan for stakeholders"],
