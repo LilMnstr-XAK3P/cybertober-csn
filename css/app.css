@@ -72,6 +72,11 @@ button{font:inherit;cursor:pointer}
 .reveal .rc{margin:auto}
 
 /* mission */
+.family{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;margin-block:26px 0;padding:18px 20px;border-radius:14px;background:var(--surface);border:2px solid var(--w4);border-left-width:8px}
+.family .ftxt{flex:1 1 420px;min-width:0}
+.family h2{font:800 26px/1.05 var(--f-display);text-transform:uppercase;margin:8px 0 6px;color:var(--ink)}
+.family p{margin:0;max-width:76ch;font-size:15px}
+.family .tag{background:color-mix(in srgb,var(--w4) 18%,var(--surface));color:var(--ink)}
 .mission{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;padding:18px 20px;margin-block:0 22px;border-radius:14px;background:#004990;color:#fff;border:2px solid var(--csn-gold)}
 .mission .mtxt{flex:1 1 420px;min-width:0}
 .mission h2{font:800 26px/1.05 var(--f-display);text-transform:uppercase;margin:8px 0 6px;text-wrap:balance}

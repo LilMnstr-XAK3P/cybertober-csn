@@ -775,7 +775,7 @@ var CONTENT = {
       { t: "CISA Cyber Hygiene Services", d: "Free vulnerability scanning and web application scanning for eligible organizations.", u: "https://www.cisa.gov/cyber-hygiene-services" },
       { t: "CISA Cybersecurity Awareness Month", d: "This year's toolkit, posters, tip sheets and presentations.", u: "https://www.cisa.gov/cybersecurity-awareness-month" },
       { t: "Secure Our World", d: "CISA's four essentials: phishing, passwords, MFA and updates.", u: "https://www.cisa.gov/secure-our-world" },
-      { t: "KnowBe4 CAPY", d: "Free bite-sized safety lessons for you and your family. No login needed.", u: "https://www.knowbe4.com/free-cybersecurity-tools/capy", show: "knowbe4.com/free-cybersecurity-tools/capy" }] },
+      { t: "KnowBe4 CAPY · for the whole family", d: "Free, bite-sized safety lessons for kids, parents and grandparents. No login, available all year.", u: "https://www.knowbe4.com/free-cybersecurity-tools/capy", show: "knowbe4.com/free-cybersecurity-tools/capy" }] },
     { group: "Report it", items: [
       { t: "Report an incident to CISA", d: "Share cyber incident information to protect other organizations.", u: "https://www.cisa.gov/report" },
       { t: "FBI Internet Crime Complaint Center", d: "Report internet crime, online fraud and business email compromise.", u: "https://www.ic3.gov/" },
