@@ -91,17 +91,10 @@
   function wc(w) { return "var(" + C.weeks[w].c + ")"; }
   function renderAll() {
     var cal = document.getElementById("cal"), t = totals(), tn = todayNum();
-    // October 1–31 in order, grouped by theme (no weekday columns, so the same layout works every year)
-    cal.innerHTML = "";
-    var groups = [];
-    DAYS.forEach(function (day) { var g = groups[groups.length - 1]; if (!g || g.w !== day.w) groups.push(g = { w: day.w, days: [] }); g.days.push(day); });
-    groups.forEach(function (g) {
-      var first = g.days[0].d, last = g.days[g.days.length - 1].d;
-      var sec = document.createElement("section"); sec.className = "wk"; sec.style.setProperty("--c", wc(g.w));
-      sec.innerHTML = '<h3 class="wkh"><span>' + esc(C.weeks[g.w].n) + '</span><small>October ' + first + (last !== first ? "–" + last : "") + "</small></h3>";
-      var row = document.createElement("div"); row.className = "grid"; sec.appendChild(row); cal.appendChild(sec);
-      g.days.forEach(function (day) { addDay(row, day); });
-    });
+    // Classic month calendar. Weekday columns are worked out from the current year, so it lines up correctly every October.
+    cal.innerHTML = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function (d) { return '<div class="dow">' + d + "</div>"; }).join("") +
+      new Array(new Date(CFG.year, CFG.month, 1).getDay() + 1).join('<div class="blank"></div>');
+    DAYS.forEach(function (day) { addDay(cal, day); });
     function addDay(row, day) {
       var b = document.createElement("button"); b.type = "button";
       var lock = !unlocked(day.d), x = dayXP(day), max = MAXXP[day.kind], done = dayDone(day);
@@ -320,6 +313,7 @@
     openDay(pick);
   };
   document.getElementById("reglink").href = CFG.kitUrl;
+  document.getElementById("legend").innerHTML = Object.keys(C.weeks).map(function (k) { return '<span style="--c:' + wc(k) + '">' + esc(C.weeks[k].n) + "</span>"; }).join("");
   document.getElementById("themeName").textContent = CFG.theme.name + (CFG.theme.year === CFG.year ? "" : " (" + CFG.theme.year + ")");
   document.getElementById("regchk").onchange = function (e) { if (e.target.checked && !(flags & 1)) { flags |= 1; persist(); renderAll(); toast("+50 XP · Welcome to the Workforce Risk Division"); } };
 
