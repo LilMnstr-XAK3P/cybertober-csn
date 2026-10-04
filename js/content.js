@@ -1,6 +1,7 @@
 /* Cyber October — course content. Reusable every year: the year is automatic. Edit here: videos, KnowBe4 module IDs, readings, games, quizzes, resources. */
 var CONTENT = {
   config: {
+    title: "Cybertober 2026",        // course name: header, browser tab, certificate, first lesson. Update yearly.
     year: null,                      // null = the current year (the course reruns every October); or set e.g. 2027
     month: 9,                        // month is 0-based: 9 = October
     // Update each year from cisa.gov/cybersecurity-awareness-month. Older text says "the 2026 theme" automatically until you do.
@@ -35,12 +36,12 @@ var CONTENT = {
     { id: "gadget", name: "Gadget", w: "w2", days: [12, 13, 14, 15, 16], img: "img/badge-gadget.webp", how: "Complete every Week 2 lesson and the tabletop (Oct 12–16).", msg: "Tech specialist in AI safety and deepfake detection. Motto: <b>Keep your tools sharp and your mind sharper.</b> Use a code word to verify identity during “urgent” calls." },
     { id: "locknkey", name: "Lock n' Key", w: "w3", days: [19, 20, 21, 22, 23], img: "img/badge-locknkey.webp", how: "Complete every Week 3 lesson and the tabletop (Oct 19–23).", msg: "Cryptographer: passkeys, MFA and encryption. Motto: <b>[REDACTED]</b>. Your password shouldn't be a word; it should be a story only you know." },
     { id: "scout", name: "Scout", w: "w4", days: [26, 27, 28, 29, 30], img: "img/badge-scout.webp", how: "Complete every Week 4 lesson and the tabletop (Oct 26–30).", msg: "Field operative for incident reporting and physical security. Motto: <b>If it walks like a data breach and talks like a data breach, you'd better tell someone.</b>" },
-    { id: "defender", name: "Cyber Defender", w: "b", img: "img/badge-defender.webp", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished Cyber October. Open October 31 to see your certificate once your score reaches 70%." }
+    { id: "defender", name: "Cyber Defender", w: "b", img: "img/badge-defender.webp", days: [31], how: "Beat the October 31 Boss Fight.", msg: "You finished {{title}}. Open October 31 to see your certificate once your score reaches 70%." }
   ],
 
   days: [
   /* ================= KICKOFF ================= */
-  { d: 1, w: "k", kind: "core", title: "Welcome to Cyber October",
+  { d: 1, w: "k", kind: "core", title: "Welcome to {{title}}",
     video: { yt: "2BnIUyXbxYo", title: "Cybersecurity Awareness Month 2026 Kickoff", by: "CISA" },
     read: '<p><b>Cybersecurity Awareness Month</b> has run every October for more than 20 years. CISA and the National Cybersecurity Alliance lead it together, and it reminds everyone to take regular, simple actions that cut risk online.</p>' +
       '<p><b>{{themeIntro}} “{{theme}}.”</b> {{themeBlurb}}</p>' +

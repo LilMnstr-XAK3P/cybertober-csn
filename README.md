@@ -1,4 +1,4 @@
-# Cyber October
+# Cybertober 2026
 
 An interactive Cybersecurity Awareness Month course for College of Southern Nevada students, built as an October calendar that reruns every year: October 1–31 in order, with four themed weeks of lessons, a tabletop mission to finish each week, bonus days and a Halloween Boss Fight.
 

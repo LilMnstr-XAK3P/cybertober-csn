@@ -5,7 +5,7 @@
   CFG.year = CFG.year || now.getFullYear();                 // the course runs in the current year's October
   (function fillTokens() {                                  // {{year}}, {{theme}}… in content text
     var TH = CFG.theme, cur = TH.year === CFG.year;
-    var T = { year: CFG.year, theme: TH.name, themeBlurb: TH.blurb, themeWhy: TH.why,
+    var T = { title: CFG.title, year: CFG.year, theme: TH.name, themeBlurb: TH.blurb, themeWhy: TH.why,
       themeIntro: cur ? "This year\u2019s theme is" : "The " + TH.year + " theme was",
       themeQ: cur ? "this year\u2019s Cybersecurity Awareness Month theme" : "the " + TH.year + " Cybersecurity Awareness Month theme" };
     function walk(o) {
@@ -14,7 +14,7 @@
         else if (o[k] && typeof o[k] === "object") walk(o[k]);
       }
     }
-    walk(C.days); walk(C.library);
+    walk(C.days); walk(C.library); walk(C.badges);
   })();
   var KEYS = ["video", "kb4", "read", "g0", "g1", "quiz"];          // fixed bit order (do not reorder: saved progress depends on it)
   var WEIGHT = { video: 2, kb4: 2.5, read: 2, g0: 3, g1: 3, quiz: 3 };
@@ -251,7 +251,7 @@
     var t = totals();
     if (!(dayDone(BY[31]) && t.passed)) { box.innerHTML = '<div class="callout" style="--c:var(--boss)"><b>Certificate:</b> finish today\'s Jeopardy board and final check, and reach ' + CFG.passPct + "% overall, to unlock your Cyber Defender certificate. Your score right now is " + t.pct + "%.</div>"; return; }
     var n = SCORM.name() || "Cyber Defender";
-    box.innerHTML = '<div class="cert"><p>Cybersecurity Awareness Month ' + CFG.year + ' · “' + esc(CFG.theme.name) + '”</p><h3>Certificate of Completion</h3><p>This certifies that</p><div class="nm">' + esc(n) + '</div><p>completed <b>Cyber October ' + CFG.year + '</b> with a score of <b>' + t.pct + '%</b> and earned the rank of <b>Cyber Defender</b>.</p><p>' + esc(CFG.author) + ", " + esc(CFG.authorTitle) + '</p><p class="src" style="color:#53627A">October 31, ' + CFG.year + ' · Unofficial certificate of course completion issued by the instructor. Not an official institutional credential.</p></div><div class="row"><button class="btn" data-print>Print or save as PDF</button></div>';
+    box.innerHTML = '<div class="cert"><p>Cybersecurity Awareness Month ' + CFG.year + ' · “' + esc(CFG.theme.name) + '”</p><h3>Certificate of Completion</h3><p>This certifies that</p><div class="nm">' + esc(n) + '</div><p>completed <b>' + esc(CFG.title) + '</b> with a score of <b>' + t.pct + '%</b> and earned the rank of <b>Cyber Defender</b>.</p><p>' + esc(CFG.author) + ", " + esc(CFG.authorTitle) + '</p><p class="src" style="color:#53627A">October 31, ' + CFG.year + ' · Unofficial certificate of course completion issued by the instructor. Not an official institutional credential.</p></div><div class="row"><button class="btn" data-print>Print or save as PDF</button></div>';
     box.querySelector("[data-print]").onclick = function () { try { window.print(); } catch (e) { toast("Printing isn't available here. Take a screenshot instead."); } };
   }
 
@@ -313,6 +313,7 @@
     openDay(pick);
   };
   document.getElementById("reglink").href = CFG.kitUrl;
+  (function () { var w = CFG.title.split(" "), last = w.length > 1 ? w.pop() : ""; document.getElementById("courseTitle").innerHTML = esc(w.join(" ")) + (last ? " <span>" + esc(last) + "</span>" : ""); document.title = CFG.title; })();
   document.getElementById("legend").innerHTML = Object.keys(C.weeks).map(function (k) { return '<span style="--c:' + wc(k) + '">' + esc(C.weeks[k].n) + "</span>"; }).join("");
   document.getElementById("themeName").textContent = CFG.theme.name + (CFG.theme.year === CFG.year ? "" : " (" + CFG.theme.year + ")");
   document.getElementById("regchk").onchange = function (e) { if (e.target.checked && !(flags & 1)) { flags |= 1; persist(); renderAll(); toast("+50 XP · Welcome to the Workforce Risk Division"); } };
