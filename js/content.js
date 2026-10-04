@@ -13,6 +13,7 @@ var CONTENT = {
     unlockAll: false,                // true = instructor preview build (all days open)
     passPct: 70,
     kitUrl: "https://www.knowbe4.com/resources/kits/cybersecurity-awareness-month",
+    kb4Embed: false,                  // false = link to KnowBe4 modules instead of embedding them (website)
     edition: "web",                  // "lms" = Canvas copy; "web" = GitHub Pages site (both with logos); "public" = no logos (set by build.py)
     disclaimer: '<b>Unofficial resource.</b> This course was created by Lily Morningstar, Cybersecurity Instructor, for College of Southern Nevada students. It is an instructor-made learning resource, not an official CSN publication. The CSN logo is used with approval from CSN Marketing.',
     author: "Lily Morningstar",
@@ -836,5 +837,5 @@ var CONTENT = {
       'College of Southern Nevada logo: used with approval from CSN Marketing (2026). Trademark of the College of Southern Nevada.',
       'NSA / National Centers of Academic Excellence in Cybersecurity (CAE-C) community seal: identifies CSN\'s CAE designation. Trademark of its owner.'] }
   ],
-  citationNote: 'Readings, games and quizzes are original material written by the author, adapted from and paraphrasing the sources below. Fictional scenarios, emails and personas are for training only. Videos are embedded from their publishers\' official channels and remain their property.'
+  citationNote: 'Inspired by the Cybersecurity Awareness Month activities KnowBe4 hosts every year (<a href="https://www.knowbe4.com/resources/kits/cybersecurity-awareness-month" target="_blank" rel="noopener">knowbe4.com</a>). Readings, games and quizzes are original material written by the author, adapted from and paraphrasing the sources below. Fictional scenarios, emails and personas are for training only. Videos are embedded from their publishers\' official channels and remain their property.'
 };

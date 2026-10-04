@@ -183,9 +183,13 @@
     if (day.kb4 && day.kb4.id) {
       var url = "https://training.knowbe4.com/modstore/view/" + day.kb4.id + "/en-us";
       h += '<div class="step" id="s-kb4">' + head("kb4", "KnowBe4 module: " + esc(day.kb4.title)) +
-        '<div class="vid kbf"><iframe src="' + url + '" title="KnowBe4 module: ' + esc(day.kb4.title) + '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>' +
-        '<div class="row"><a class="btn ghost" href="' + url + '" target="_blank" rel="noopener">Open in new tab ↗</a><button class="btn" data-mark="kb4">I finished the module</button></div>' +
-        '<p class="src">Module not showing? Some browsers block it inside Canvas. Use “Open in new tab.” KnowBe4 offers its Cybersecurity Awareness Month modules free for a limited time each October.</p>' +
+        (CFG.kb4Embed !== false
+          ? '<div class="vid kbf"><iframe src="' + url + '" title="KnowBe4 module: ' + esc(day.kb4.title) + '" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>' +
+            '<div class="row"><a class="btn ghost" href="' + url + '" target="_blank" rel="noopener">Open in new tab ↗</a><button class="btn" data-mark="kb4">I finished the module</button></div>' +
+            '<p class="src">Module not showing? Some browsers block it inside Canvas. Use “Open in new tab.” KnowBe4 offers its Cybersecurity Awareness Month modules free for a limited time each October.</p>'
+          : '<p>Play <b>' + esc(day.kb4.title) + '</b>, a free interactive module KnowBe4 offers during Cybersecurity Awareness Month. It opens on KnowBe4\'s website.</p>' +
+            '<div class="row"><a class="btn" href="' + url + '" target="_blank" rel="noopener">Open the module on KnowBe4 ↗</a><button class="btn ghost" data-mark="kb4">I finished the module</button></div>' +
+            '<p class="src">KnowBe4 offers its Cybersecurity Awareness Month modules free for a limited time each October.</p>') +
         '<div class="regnote"><b>Get the full KnowBe4 kit.</b> Register free to unlock all of this month\'s modules, posters, character cards and webinars. <a href="' + CFG.kitUrl + '" target="_blank" rel="noopener">Register on KnowBe4 ↗</a></div></div>';
     }
     if (day.read) {
@@ -294,7 +298,7 @@
 
   function footer() {
     var who = "Created by " + esc(CFG.author) + ", " + esc(CFG.authorTitle), disc = CFG.disclaimer;
-    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Created October 1, 2026.</p>";
+    document.getElementById("credits").innerHTML = '<p class="byline">' + who + ' · <a href="#citations" data-cite>Sources &amp; citations</a></p><p>' + disc + "</p><p>Inspired by the <a href=\"" + CFG.kitUrl + "\" target=\"_blank\" rel=\"noopener\">Cybersecurity Awareness Month activities KnowBe4 hosts every year ↗</a>.</p><p>Not affiliated with or endorsed by KnowBe4, CISA, NIST, the National Cybersecurity Alliance or the FTC. Their materials are adapted and credited for educational use and remain the property of their owners. Created October 1, 2026.</p>";
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-cite]"); if (!a) return;

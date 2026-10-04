@@ -2,7 +2,7 @@
 
 An interactive Cybersecurity Awareness Month course for College of Southern Nevada students, built as an October calendar that reruns every year: October 1–31 in order, with four themed weeks of lessons, a tabletop mission to finish each week, bonus days and a Halloween Boss Fight.
 
-**Open the course:** https://lilmnstr-xak3p.github.io/csn-cyber-october/
+**Open the course:** https://lilmnstr-xak3p.github.io/cybertober-csn/
 
 - Days unlock on their October date each year. Missed days stay open.
 - Progress is saved in your browser on the device you use. Taking the course in Canvas? Use the Canvas copy so your score is recorded.
